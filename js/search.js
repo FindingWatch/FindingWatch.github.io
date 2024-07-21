@@ -1,7 +1,7 @@
 const searchBtn = document.querySelector("#search-btn")
 const searchIpt = document.querySelector("#search-input")
 const searchResult = document.querySelector("#search-result")
-const searchClearBtn = document.querySelector("#search-clear")
+const searchCloseBtn = document.querySelector("#search-close")
 
 const searchMask = document.querySelector("#search-mask")
 
@@ -37,9 +37,8 @@ function searchInitialize(url) {
       if (e.key == 'Escape') closeSearchDialog()
     })
 
-    searchClearBtn.addEventListener('click', () => {
-      searchIpt.value = ""
-      clearResult()
+    searchCloseBtn.addEventListener('click', () => {
+      closeSearchDialog()
     })
 
     searchBtn.addEventListener('click', () => {
