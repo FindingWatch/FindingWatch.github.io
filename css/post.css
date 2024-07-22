@@ -171,13 +171,13 @@
 .toc-outer .toc-top {
   display: inline-block;
   padding: 8px 0;
-  color: #555;
+  color: #19389f;
   font-size: 0.875em;
   height: 30px;
   line-height: 30px;
 }
 .toc-outer .toc-title {
-  border-top: 2px solid #8ec0e4;
+  border-top: 2px solid #ef3e4c;
 }
 .toc-outer a {
   text-decoration: none;
@@ -214,8 +214,7 @@
   border-radius: 5px;
 }
 .toc-outer .post-toc li.active {
-  background-color: #00c4b3;
-  color: #fff;
+  color: #ef3e4c;
 }
 .post__foot {
   max-width: 900px;
