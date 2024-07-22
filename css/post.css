@@ -157,13 +157,15 @@
   position: sticky;
   top: 60px;
   float: right;
-  margin-right: -230px;
+  margin-right: -380px;
   max-height: calc(100vh - 250px);
   min-height: 400px;
   padding-left: 30px;
   overflow-y: auto;
-  width: 200px;
+  width: 270px;
   color: #666;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .toc-outer .toc-title,
 .toc-outer .toc-top {
@@ -175,7 +177,7 @@
   line-height: 30px;
 }
 .toc-outer .toc-title {
-  border-top: 2px solid #eff2f3;
+  border-top: 2px solid #8ec0e4;
 }
 .toc-outer a {
   text-decoration: none;
@@ -200,12 +202,20 @@
   line-height: 1.25em;
 }
 .toc-outer .post-toc-level-2 {
-  font-size: 15px;
-  margin: 5px 0;
+  font-size: 18px;
+  margin-left: 10px;
 }
 .toc-outer .post-toc-level-3 {
-  font-size: 14px;
-  padding-left: 10px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+.toc-outer .post-toc li {
+  padding: 5px;
+  border-radius: 5px;
+}
+.toc-outer .post-toc li.active {
+  background-color: #00c4b3;
+  color: #fff;
 }
 .post__foot {
   max-width: 900px;
