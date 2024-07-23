@@ -451,20 +451,26 @@
     font-size: 18px;
   }
   .hello-world {
-    top: 15%;
+    top: 20%;
+    font-size: 1em;
   }
   #heart-curve {
     top: 60%;
-    right: 10%;
-    width: 300px;
+    right: 22%;
+    width: 200px;
+    margin-top: -100px;
+  }
+  .wall-description {
+    font-size: 1.2em;
+    letter-spacing: 0.12em;
   }
   .normal-eqt {
     bottom: 14%;
-    left: 40%;
+    left: 27%;
     top: auto;
   }
   .normal-eqt img {
-    width: 200px;
+    width: 180px;
   }
 }
 @-moz-keyframes spark {

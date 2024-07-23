@@ -29,7 +29,7 @@ blockquote {
 iframe,
 img,
 video {
-  max-width: 100%;
+  max-width: 500%;
 }
 table {
   border-collapse: collapse;
