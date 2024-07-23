@@ -538,7 +538,7 @@ mjx-container {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  height: 90px;
+  height: 150px;
   font-weight: bold;
 }
 #navBtn {
@@ -555,6 +555,9 @@ mjx-container {
 .nav-logo {
   height: 60px;
   width: 60px;
+}
+.nav-logo img {
+  margin-left: 40%;
 }
 .nav-menu {
   display: flex;
@@ -609,6 +612,7 @@ mjx-container {
   .nav-logo img {
     height: 40px;
     width: 40px;
+    margin-left: auto;
   }
   .nav-btn {
     display: block;

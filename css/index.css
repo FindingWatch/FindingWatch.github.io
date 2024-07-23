@@ -34,7 +34,7 @@
 .wall-description {
   font-size: 2em;
   font-weight: 400;
-  margin: 10px 0;
+  margin: -200px 0;
   font-family: sourceHanSerif;
   letter-spacing: 0.2em;
 }
@@ -463,6 +463,7 @@
   .wall-description {
     font-size: 1.2em;
     letter-spacing: 0.12em;
+    margin: 10px 0;
   }
   .normal-eqt {
     bottom: 14%;
