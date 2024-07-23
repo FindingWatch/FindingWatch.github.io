@@ -14,7 +14,7 @@
   transition: background-color 200ms ease-in;
 }
 .wall-main:hover+.wall-bg::before {
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.15);
 }
 .wall-main:hover+.wall-bg .cursor {
   animation: spark 1s ease infinite;
@@ -26,18 +26,13 @@
   margin-top: -20vh;
   z-index: 3;
 }
-.wall-title {
-  font-weight: 600;
-  font-size: 72px;
-  animation: flyIn 500ms ease-out;
-}
 .wall-subtitle {
   font-size: 36px;
   font-weight: bold;
   margin-top: 10px;
 }
 .wall-description {
-  font-size: 20px;
+  font-size: 2em;
   font-weight: 400;
   margin: 10px 0;
   font-family: sourceHanSerif;

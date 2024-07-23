@@ -133,6 +133,18 @@
   font-size: 40px;
   padding: 80px 0 20px;
   font-family: sourceSans, sourceHanSerif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tag-label {
+  display: inline-block;
+  background-color: #19479d;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 0.8em;
+  margin-right: 10px;
 }
 @media screen and (max-width: 1023px) {
   .wall-category .tag-page-title {
