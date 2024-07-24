@@ -168,8 +168,8 @@
 }
 .radio-skin,
 .radio-skin--article,
-.radio-skin--app,
-.radio-skin--event {
+.radio-skin--idea,
+.radio-skin--academic {
   height: 100%;
   width: 2px;
   border-radius: 1px;
@@ -178,8 +178,8 @@
 }
 .radio-skin::after,
 .radio-skin--article::after,
-.radio-skin--app::after,
-.radio-skin--event::after {
+.radio-skin--idea::after,
+.radio-skin--academic::after {
   transition: all 0.4s ease;
   display: block;
   height: 20px;
@@ -195,68 +195,68 @@
   box-shadow: 1px 0 5px rgba(0,0,0,0.2);
 }
 .radio-skin--article::after {
-  border-color: #ee936c;
+  border-color: #00a650;
 }
 #radio-article:checked+.radio-skin--article {
-  background-color: #ee936c;
+  background-color: #00a650;
 }
 #radio-article:checked+.radio-skin--article::after {
-  background-color: #ee936c;
+  background-color: #00a650;
   top: -2px;
 }
 .timeline-item-article .line-anchor::after,
 .timeline-item-article--hidden .line-anchor::after {
-  background-color: #ee936c;
+  background-color: #00a650;
 }
 .timeline-item-article .line-date-tag,
 .timeline-item-article--hidden .line-date-tag {
-  background-color: #ee936c;
+  background-color: #00a650;
 }
 /*
   .timeline-item-app, .timeline-item-event {
     font-weight: bold;
   }
   */
-.radio-skin--app::after {
-  border-color: #60a465;
+.radio-skin--idea::after {
+  border-color: #ffd600;
 }
-#radio-app:checked+.radio-skin--app {
-  background-color: #60a465;
+#radio-idea:checked+.radio-skin--idea {
+  background-color: #ffd600;
 }
-#radio-app:checked+.radio-skin--app::after {
-  background-color: #60a465;
+#radio-idea:checked+.radio-skin--idea::after {
+  background-color: #ffd600;
   top: -2px;
 }
-.timeline-item-app .line-anchor::after,
-.timeline-item-app--hidden .line-anchor::after {
-  background-color: #60a465;
+.timeline-item-idea .line-anchor::after,
+.timeline-item-idea--hidden .line-anchor::after {
+  background-color: #ffd600;
 }
-.timeline-item-app .line-date-tag,
-.timeline-item-app--hidden .line-date-tag {
-  background-color: #60a465;
+.timeline-item-idea .line-date-tag,
+.timeline-item-idea--hidden .line-date-tag {
+  background-color: #ffd600;
 }
 /*
   .timeline-item-app, .timeline-item-event {
     font-weight: bold;
   }
   */
-.radio-skin--event::after {
-  border-color: #568dc4;
+.radio-skin--academic::after {
+  border-color: #131a6d;
 }
-#radio-event:checked+.radio-skin--event {
-  background-color: #568dc4;
+#radio-academic:checked+.radio-skin--academic {
+  background-color: #131a6d;
 }
-#radio-event:checked+.radio-skin--event::after {
-  background-color: #568dc4;
+#radio-academic:checked+.radio-skin--academic::after {
+  background-color: #131a6d;
   top: -2px;
 }
-.timeline-item-event .line-anchor::after,
-.timeline-item-event--hidden .line-anchor::after {
-  background-color: #568dc4;
+.timeline-item-academic .line-anchor::after,
+.timeline-item-academic--hidden .line-anchor::after {
+  background-color: #131a6d;
 }
-.timeline-item-event .line-date-tag,
-.timeline-item-event--hidden .line-date-tag {
-  background-color: #568dc4;
+.timeline-item-academic .line-date-tag,
+.timeline-item-academic--hidden .line-date-tag {
+  background-color: #131a6d;
 }
 /*
   .timeline-item-app, .timeline-item-event {
