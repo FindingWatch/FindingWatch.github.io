@@ -160,7 +160,7 @@
           <div class="cursor"></div>
         </div>
         <div class="normal-eqt">
-          <img alt="normal" width="300px" height="" src="/images/Moore-coulomb%20theorem.svg"/>
+          <img alt="normal" width="200px" height="" src="/images/Moore-coulomb%20theorem.svg"/>
         </div>
         <canvas width="400" height="400" id="heart-curve"></canvas>
         
@@ -242,11 +242,11 @@
         <div class="foot__head">
           
             <div class="foot-line">
-              <div class="matts">天</div><div class="matts">接</div><div class="matts">云</div><div class="matts">涛</div><div class="matts">连</div><div class="matts">晓</div><div class="matts">雾</div>
+              <div class="matts">江</div><div class="matts">南</div><div class="matts">无</div><div class="matts">所</div><div class="matts">有</div>
             </div>
           
             <div class="foot-line">
-              <div class="matts">星</div><div class="matts">河</div><div class="matts">欲</div><div class="matts">转</div><div class="matts">千</div><div class="matts">帆</div><div class="matts">舞</div>
+              <div class="matts">聊</div><div class="matts">赠</div><div class="matts">一</div><div class="matts">枝</div><div class="matts">春</div>
             </div>
           
         </div>
@@ -332,7 +332,7 @@
     this.a = undefined;
     this.ctx = undefined;
     this.deg = 0;
-    this.speed = 0.3;
+    this.speed = 0.25;
     this.isPause = false;
     this.init();
   }
@@ -347,7 +347,7 @@
     this.ctx = canvas.getContext('2d');
     this.ctx.translate(w / 2, h / 2);
     this.ctx.lineJoin = 'round';
-    this.a = w / 3;
+    this.a =  w / 3;
     this.id = null;
     return this;
   };
@@ -375,15 +375,15 @@
     } = this;
     ctx.beginPath();
     let x, y, deg = 0;
-    ctx.moveTo(0, 0);
-    ctx.strokeStyle = "#ef3e4c";
+    ctx.moveTo(a, 0);
+    ctx.strokeStyle = "#0000FF";
     while (deg <= 360) {
       const theta = deg / 180 * Math.PI;
       r = a * Math.cos(2*theta);
       x = r * Math.cos(theta);
       y = r * Math.sin(theta);
       ctx.lineTo(x, y);
-      deg++;
+      deg+=0.1;
     }
     ctx.stroke();
   };
@@ -399,17 +399,17 @@
 
     ctx.clearRect(-w / 3 * 2, -h / 2, w, h);
     const theta = deg / 180 * Math.PI;
-    this._drawAxis();
-    ctx.lineWidth = 2;
+    
+    ctx.lineWidth = 1.5;
     this._drawCure();
-    ctx.strokeStyle = "#000";
+    
     
     ctx.beginPath();
-    ctx.strokeStyle = "#000000";
+    ctx.fillStyle = "#FFFFFF";
     let r = a * Math.cos(2* theta);
     let x = r * Math.cos(theta);
     let y = r * Math.sin(theta);
-    ctx.arc(x, y, 3, 0, 2 * Math.PI);
+    ctx.arc(x, y, 2, 0, 2 * Math.PI);
     ctx.fill();
     if (this.isPause) return;
 
