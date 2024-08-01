@@ -182,143 +182,143 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">[abc]<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, b, c<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, b, c<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>[^abc]</code>：匹配除了 ‘a’, ‘b’ 或 ‘c’ 以外的任意一个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">[^abc]<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">d, e, 1, @<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">d, e, 1, @<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>[a-z]</code>：匹配从 ‘a’ 到 ‘z’ 范围内的任意一个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">[a-z]<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, m, z<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, m, z<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>[0-9]</code>：匹配从 ‘0’ 到 ‘9’ 范围内的任意一个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">[0-9]<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">0, 5, 9<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">0, 5, 9<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h3><ul>
 <li><p><code>.</code>：匹配除换行符外的任意一个字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">.<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, 1, @, (space)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, 1, @, (space)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\d</code>：匹配任意一个数字字符（等价于 <code>[0-9]</code>）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\d<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">0, 5, 9<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">0, 5, 9<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\D</code>：匹配任意一个非数字字符（等价于 <code>[^0-9]</code>）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\D<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, @, (space)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, @, (space)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\w</code>：匹配任意一个单词字符（字母、数字、下划线）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\w<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, 5, _<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, 5, <span class="hljs-built_in">_</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\W</code>：匹配任意一个非单词字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\W<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">@, (space), #<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">@, (space), <span class="hljs-params">#</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\s</code>：匹配任意一个空白字符（空格、制表符、换行符等）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\s<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">(space), \t, \n<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">(space), <span class="hljs-keyword">\t</span>, <span class="hljs-keyword">\n</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\S</code>：匹配任意一个非空白字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\S<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">a, 1, @<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, 1, @<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="边界匹配"><a href="#边界匹配" class="headerlink" title="边界匹配"></a>边界匹配</h3><ul>
 <li><p><code>^</code>：匹配字符串的开始。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">^Hello<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Hello world (匹配)<br>world Hello (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">Hello world (匹配)<br>world Hello (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>$</code>：匹配字符串的结束。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">world$<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Hello world (匹配)<br>world Hello (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">Hello world (匹配)<br>world Hello (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\b</code>：匹配单词边界。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\bword\b<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">word (匹配)<br>words (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">word (匹配)<br>words (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>\B</code>：匹配非单词边界。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\Bword\B<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">swordfish (匹配)<br>word (不匹配)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">swordfish (匹配)<br>word (不匹配)<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><ul>
 <li><p><code>*</code>：匹配前面的子表达式零次或多次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a*<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;&#x27;, &#x27;a&#x27;, &#x27;aaa&#x27;<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;&#x27;, &#x27;a&#x27;, &#x27;aaa&#x27;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>+</code>：匹配前面的子表达式一次或多次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a+<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;a&#x27;, &#x27;aaa&#x27; (匹配)<br>&#x27;&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;a&#x27;, &#x27;aaa&#x27; (匹配)<br>&#x27;&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>?</code>：匹配前面的子表达式零次或一次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a?<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;&#x27;, &#x27;a&#x27; (匹配)<br>&#x27;aa&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;&#x27;, &#x27;a&#x27; (匹配)<br>&#x27;aa&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>&#123;n&#125;</code>：匹配前面的子表达式恰好 n 次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a&#123;3&#125;<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;aaa&#x27; (匹配)<br>&#x27;aa&#x27;, &#x27;aaaa&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;aaa&#x27; (匹配)<br>&#x27;aa&#x27;, &#x27;aaaa&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>&#123;n,&#125;</code>：匹配前面的子表达式至少 n 次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a&#123;2,&#125;<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;aa&#x27;, &#x27;aaa&#x27; (匹配)<br>&#x27;a&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;aa&#x27;, &#x27;aaa&#x27; (匹配)<br>&#x27;a&#x27; (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>&#123;n,m&#125;</code>：匹配前面的子表达式至少 n 次，至多 m 次。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a&#123;2,4&#125;<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&#x27;aa&#x27;, &#x27;aaa&#x27;, &#x27;aaaa&#x27; (匹配)<br>&#x27;a&#x27;, &#x27;aaaaa&#x27; (不匹配)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">&#x27;aa&#x27;, &#x27;aaa&#x27;, &#x27;aaaa&#x27; (匹配)<br>&#x27;a&#x27;, &#x27;aaaaa&#x27; (不匹配)<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="分组和捕获"><a href="#分组和捕获" class="headerlink" title="分组和捕获"></a>分组和捕获</h3><ul>
 <li><p><code>()</code>：定义子表达式的范围，并捕获匹配的文本。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">(abc)<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">abc (匹配)<br>aabc, abcc (不匹配)<br></code></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">abc (匹配)<br>aabc, abcc (不匹配)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>|</code>：表示选择，匹配的是 <code>|</code> 前或 <code>|</code> 后的表达式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">a|b<br></code></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">a, b (匹配)<br>c, d (不匹配)<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tex">a, b (匹配)<br>c, d (不匹配)<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="匹配电话号码"><a href="#匹配电话号码" class="headerlink" title="匹配电话号码"></a>匹配电话号码</h3><p>假设有一个包含电话号码的文本，我们想匹配格式为 <code>(123) 456-7890</code> 的电话号码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs regex">\(\d&#123;3&#125;\) \d&#123;3&#125;-\d&#123;4&#125;<br></code></pre></td></tr></table></figure>
@@ -363,7 +363,7 @@
 <h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 正则表达式</span><br><span class="hljs-keyword">const</span> pattern = <span class="hljs-regexp">/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/</span>;<br><br><span class="hljs-comment">// 测试字符串</span><br>url = <span class="hljs-string">&#x27;http://example.com&#x27;</span>,<br><br><span class="hljs-comment">// 匹配</span><br><span class="hljs-keyword">if</span> (pattern.<span class="hljs-title function_">test</span>(url)) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Matched: <span class="hljs-subst">$&#123;url&#125;</span>`</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Not matched: <span class="hljs-subst">$&#123;url&#125;</span>`</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>在 JavaScript 中，正则表达式通常是使用斜杠 <code>/</code> 来表示的，这种方式称为<strong>正则表达式字面量</strong>。正则表达式字面量是将正则表达式直接写在斜杠之间的方式</p>
-<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT url<br>FROM urls<br>WHERE url REGEXP &#x27;^(https?|ftp)://[^\s/$.?#].[^\s]*$&#x27;;<br></code></pre></td></tr></table></figure>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> url<br><span class="hljs-keyword">FROM</span> urls<br><span class="hljs-keyword">WHERE</span> url REGEXP <span class="hljs-string">&#x27;^(https?|ftp)://[^\s/$.?#].[^\s]*$&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
       </div>
     </div>
