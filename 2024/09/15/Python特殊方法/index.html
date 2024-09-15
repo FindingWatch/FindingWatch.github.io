@@ -173,30 +173,30 @@
         <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Python 中的特殊方法（也称为“魔术方法”或“dunder 方法”，因为它们的名称前后有两个下划线，如 <code>__init__</code>）是 Python 类的一部分，用来定义对象的某些行为。这些方法在特定情况下被自动调用。它们可以帮助我们实现一些内置功能，比如运算符重载、对象创建、字符串表示等。</p>
 <h2 id="常见的特殊方法"><a href="#常见的特殊方法" class="headerlink" title="常见的特殊方法"></a>常见的特殊方法</h2><p>Python 中的魔术方法可以按照不同的类别进行划分，根据它们的功能和触发场景。下面将这些方法分为几大类，并逐一介绍：</p>
 <h3 id="对象的创建与销毁"><a href="#对象的创建与销毁" class="headerlink" title="对象的创建与销毁"></a><strong>对象的创建与销毁</strong></h3><ul>
-<li><p><strong><code>__new__(cls, ...)</code><strong>：</strong>作用</strong>：控制对象的创建过程，在对象创建之前被调用。通常不需要重写，除非需要自定义对象的创建逻辑。<code>__new__</code> 返回类的实例。</p>
+<li><p><code>__new__(cls, ...)</code><strong>：</strong>作用：控制对象的创建过程，在对象创建之前被调用。通常不需要重写，除非需要自定义对象的创建逻辑。<code>__new__</code> 返回类的实例。</p>
 </li>
-<li><p><strong><code>__init__(self, ...)</code><strong>：</strong>作用</strong>：对象初始化方法，创建对象后立即调用，用于设置对象属性。</p>
+<li><p><code>__init__(self, ...)</code><strong>：</strong>作用：对象初始化方法，创建对象后立即调用，用于设置对象属性。</p>
 </li>
-<li><p><strong><code>__del__(self)</code><strong>：</strong>作用</strong>：对象销毁方法，当对象被垃圾回收时调用。可以用来执行清理操作，但不常使用。（在GC之前，Python会调用这个对象的__del__()方法完成一些终止化工作。如果没有__del__()方法，那么Python不做特殊的处理。）</p>
+<li><p><code>__del__(self)</code>：作用：对象销毁方法，当对象被垃圾回收时调用。可以用来执行清理操作，但不常使用。（在GC之前，Python会调用这个对象的__del__()方法完成一些终止化工作。如果没有__del__()方法，那么Python不做特殊的处理。）</p>
 </li>
 </ul>
 <h3 id="对象表示"><a href="#对象表示" class="headerlink" title="对象表示"></a><strong>对象表示</strong></h3><ul>
-<li><p>**<code>__str__(self)</code>**：</p>
+<li><p><code>__str__(self)</code>：</p>
 <ul>
 <li><strong>作用</strong>：定义对象的<strong>用户友好</strong>字符串表示，当调用 <code>print()</code> 或 <code>str()</code> 时被触发。</li>
 </ul>
 </li>
-<li><p>**<code>__repr__(self)</code>**：</p>
+<li><p><code>__repr__(self)</code>：</p>
 <ul>
 <li><strong>作用</strong>：定义对象的<strong>官方</strong>字符串表示，通常用于调试。通过 <code>repr()</code> 或在解释器中直接调用对象时触发。</li>
 </ul>
 </li>
-<li><p>**<code>__format__(self, format_spec)</code>**：</p>
+<li><p><code>__format__(self, format_spec)</code>：</p>
 <ul>
 <li><strong>作用</strong>：定义对象的格式化输出，当使用 <code>format()</code> 函数或 <code>f-string</code> 时调用。</li>
 </ul>
 </li>
-<li><p>**<code>__bytes__(self)</code>**：</p>
+<li><p><code>__bytes__(self)</code>：</p>
 <ul>
 <li><strong>作用</strong>：定义对象的字节表示，当调用 <code>bytes()</code> 函数时触发。</li>
 </ul>
