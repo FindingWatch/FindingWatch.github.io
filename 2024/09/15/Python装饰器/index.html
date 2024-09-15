@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        Python装饰器 | Watch
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/logo-rainbow.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/logo-rainbow32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/logo-rainbow16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo-rainbow.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-close"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo-rainbow.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/classical_poems">古典诗词</a>
+              
+                <a class="nav-menu-item" href="/computer_technology">技术文档</a>
+              
+                <a class="nav-menu-item" href="/what_i_see">我看见</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">Python装饰器</div>
+        <div class="post-info">
+          
+  <a href="/tags/Python/" class="post-tag">#Python</a>
+
+
+          <span class="post-date">2024-09-15</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">@符号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">带参数的装饰器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">示例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%EF%BC%88Logging%EF%BC%89"><span class="post-toc-text">日志记录（Logging）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81%EF%BC%88Authentication%EF%BC%89"><span class="post-toc-text">权限验证（Authentication）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%EF%BC%88Performance-Monitoring%EF%BC%89"><span class="post-toc-text">性能测量（Performance Monitoring）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%EF%BC%88Caching%EF%BC%89"><span class="post-toc-text">缓存（Caching）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E6%A3%80%E6%9F%A5%EF%BC%88Validation%EF%BC%89"><span class="post-toc-text">输入检查（Validation）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6%EF%BC%88Retry%EF%BC%89"><span class="post-toc-text">重试机制（Retry）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#atexit%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">@atexit装饰器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#deprecated%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">@deprecated装饰器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Django%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">Django中的装饰器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#permission-required"><span class="post-toc-text">@permission_required</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#user-passes-test"><span class="post-toc-text">@user_passes_test</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#csrf-exempt"><span class="post-toc-text">@csrf_exempt</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#require-http-methods"><span class="post-toc-text">@require_http_methods</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#require-GET-require-POST"><span class="post-toc-text">@require_GET, @require_POST</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cache-page"><span class="post-toc-text">@cache_page</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#never-cache"><span class="post-toc-text">@never_cache</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vary-on-headers-vary-on-cookie"><span class="post-toc-text">@vary_on_headers, @vary_on_cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#transaction-atomic"><span class="post-toc-text">@transaction.atomic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sensitive-post-parameters"><span class="post-toc-text">@sensitive_post_parameters</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%8EJava%E6%B3%A8%E8%A7%A3"><span class="post-toc-text">Python装饰器与Java注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%94%A8%E9%80%94"><span class="post-toc-text">定义与用途</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="post-toc-text">运行机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Python-%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">Python 装饰器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java-%E6%B3%A8%E8%A7%A3"><span class="post-toc-text">Java 注解</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E7%94%A8%E9%80%94"><span class="post-toc-text">常见用途</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Python-%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E7%94%A8%E9%80%94"><span class="post-toc-text">Python 装饰器的用途</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java-%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%94%A8%E9%80%94"><span class="post-toc-text">Java 注解的用途</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B7%AE%E5%BC%82%E4%B8%8E%E5%AF%B9%E6%AF%94"><span class="post-toc-text">差异与对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8B%93%E5%B1%95"><span class="post-toc-text">拓展</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%B1%BB%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="post-toc-text">类装饰器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8functools-wraps"><span class="post-toc-text">使用functools.wraps</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>装饰器本质上是一个函数，该函数接受一个函数作为参数，并返回一个新的函数。（可以理解为输入一个函数，返回装饰后的函数，所谓装饰，一般来说就是为该函数添加一些功能）</p>
+<p>装饰器的核心部分只有两部分：</p>
+<ol>
+<li>定义一个内部函数：为原函数添加功能（在参数与返回类型上应与原函数保持一致）</li>
+<li>返回该内部函数</li>
+</ol>
+<p>这是一个简单装饰器的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate</span>(<span class="hljs-params">a,b</span>):<br>    <span class="hljs-built_in">sum</span> =<span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(a,b):<br>        <span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span>+i<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator_cal</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        start_time = time.time()<br>        res = func(*args, **kwargs)<br>        end_time =time.time()<br>        diff_time = end_time-start_time<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;func.__name__&#125;</span> took <span class="hljs-subst">&#123;diff_time:<span class="hljs-number">.10</span>f&#125;</span> seconds&quot;</span>)<br>        <span class="hljs-keyword">return</span> res<br>    <span class="hljs-keyword">return</span> wapper<br><br>calculate= decorator_cal(calculate)<br><br>calculate(<span class="hljs-number">6</span>,<span class="hljs-number">10263</span>)<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>首先我们定义了一个简单的求和函数calculate(a,b)，输入是区间[a,b)，返回区间和。</p>
+</li>
+<li><p>接下来我们定义了一个装饰器函数</p>
+<p>其中的关键是</p>
+<ul>
+<li><p>*args, **kwargs：这些是可变参数，用于接收任意数量的非关键字参数和关键字参数。这样可以确保 <code>wapper</code> 函数能够接收和处理 <code>func</code> 所有的参数。</p>
+</li>
+<li><p>res &#x3D; func(*args, **kwargs)：调用传入的 <code>func</code> 函数，并把原始的参数传递给它。执行完 <code>func</code> 函数后，会将结果保存在变量 <code>res</code> 中。</p>
+</li>
+<li><p>return res 由于原函数包含返回值，所以wapper也需要有和原函数相同的返回值。如果原函数没有返回值，wapper自然也不需要返回值。</p>
+</li>
+</ul>
+</li>
+<li><p>最后我们显示调用该装饰器函数：calculate&#x3D; decorator_cal(calculate)，从此以后，调用calculate就是调用装饰过后的calculate了(注意我们一般通过@符号完成该步骤，这里是方便理解)</p>
+</li>
+</ol>
+<h3 id="符号"><a href="#符号" class="headerlink" title="@符号"></a>@符号</h3><p>@decorator本质上是一个语法糖，当他添加在某函数(func)上时，它等价与func &#x3D; decorator(func)</p>
+<p>装饰器通常使用<code>@decorator_name</code>的语法糖直接应用到需要装饰的函数上。</p>
+<h3 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h3><p>有时，装饰器本身需要接受参数。此时可以使用多一层嵌套来实现。</p>
+<p>比如，我想在刚才输出是控制打印精度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">Precision_control</span>(<span class="hljs-params">precision</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator_cal</span>(<span class="hljs-params">func</span>):<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">wapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>            start_time = time.time()<br>            res = func(*args, **kwargs)<br>            end_time =time.time()<br>            diff_time = end_time-start_time<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;func.__name__&#125;</span> took <span class="hljs-subst">&#123;diff_time:.&#123;precision&#125;</span>f&#125; seconds&quot;</span>)<br>            <span class="hljs-keyword">return</span> res<br>        <span class="hljs-keyword">return</span> wapper<br>    <span class="hljs-keyword">return</span> decorator_cal<br><br><span class="hljs-meta">@Precision_control(<span class="hljs-params"><span class="hljs-number">5</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calculate</span>(<span class="hljs-params">a,b</span>):<br>    <span class="hljs-built_in">sum</span> =<span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(a,b):<br>        <span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span>+i<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br><br>calculate(<span class="hljs-number">6</span>,<span class="hljs-number">10263</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>我们可以通过 Python 装饰器来实现多种功能，比如日志记录、权限验证、性能测量、缓存、输入检查等。</p>
+<h3 id="日志记录（Logging）"><a href="#日志记录（Logging）" class="headerlink" title="日志记录（Logging）"></a><strong>日志记录（Logging）</strong></h3><p>日志记录用于在函数执行时记录相关信息，帮助调试和了解系统行为。可以通过装饰器自动记录函数的调用情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps<br><br><span class="hljs-comment"># 设置日志</span><br>logging.basicConfig(level=logging.INFO)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">log_decorator</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        logging.info(<span class="hljs-string">f&quot;Running <span class="hljs-subst">&#123;func.__name__&#125;</span> with args: <span class="hljs-subst">&#123;args&#125;</span> and kwargs: <span class="hljs-subst">&#123;kwargs&#125;</span>&quot;</span>)<br>        result = func(*args, **kwargs)<br>        logging.info(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;func.__name__&#125;</span> returned <span class="hljs-subst">&#123;result&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@log_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>):<br>    <span class="hljs-keyword">return</span> a + b<br><br>add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<p>日志输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">INFO:root:Running add with args: (2, 3) and kwargs: &#123;&#125;<br>INFO:root:add returned 5<br></code></pre></td></tr></table></figure>
+
+<h3 id="权限验证（Authentication）"><a href="#权限验证（Authentication）" class="headerlink" title="权限验证（Authentication）"></a><strong>权限验证（Authentication）</strong></h3><p>权限验证用于在执行某些敏感操作之前验证用户身份或权限。可以使用装饰器来检查用户是否有权限执行特定操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_permissions</span>(<span class="hljs-params">user</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">        @wraps(<span class="hljs-params">func</span>)</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>            <span class="hljs-keyword">if</span> user[<span class="hljs-string">&#x27;role&#x27;</span>] != <span class="hljs-string">&#x27;admin&#x27;</span>:<br>                <span class="hljs-keyword">raise</span> PermissionError(<span class="hljs-string">f&quot;User <span class="hljs-subst">&#123;user[<span class="hljs-string">&#x27;name&#x27;</span>]&#125;</span> does not have admin rights&quot;</span>)<br>            <span class="hljs-keyword">return</span> func(*args, **kwargs)<br>        <span class="hljs-keyword">return</span> wrapper<br>    <span class="hljs-keyword">return</span> decorator<br><br>user = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;role&#x27;</span>: <span class="hljs-string">&#x27;user&#x27;</span>&#125;<br><br><span class="hljs-meta">@check_permissions(<span class="hljs-params">user</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">delete_data</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Data deleted.&quot;</span>)<br><br><span class="hljs-keyword">try</span>:<br>    delete_data()<br><span class="hljs-keyword">except</span> PermissionError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">User Alice does not have admin rights<br></code></pre></td></tr></table></figure>
+
+<h3 id="性能测量（Performance-Monitoring）"><a href="#性能测量（Performance-Monitoring）" class="headerlink" title="性能测量（Performance Monitoring）"></a><strong>性能测量（Performance Monitoring）</strong></h3><p>性能测量用于评估函数的执行时间。可以通过装饰器来记录函数的开始时间和结束时间，并计算执行时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">timer_decorator</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        start_time = time.time()<br>        result = func(*args, **kwargs)<br>        end_time = time.time()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;func.__name__&#125;</span> took <span class="hljs-subst">&#123;end_time - start_time:<span class="hljs-number">.4</span>f&#125;</span> seconds&quot;</span>)<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@timer_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">slow_function</span>():<br>    time.sleep(<span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Finished&quot;</span><br><br>slow_function()<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">slow_function took 2.0001 seconds<br></code></pre></td></tr></table></figure>
+
+<h3 id="缓存（Caching）"><a href="#缓存（Caching）" class="headerlink" title="缓存（Caching）"></a><strong>缓存（Caching）</strong></h3><p>缓存用于存储函数的返回值，从而避免多次计算相同输入的结果。可以使用装饰器来实现简单的缓存机制。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">cache_decorator</span>(<span class="hljs-params">func</span>):<br>    cache = &#123;&#125;<br>    <br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args</span>):<br>        <span class="hljs-keyword">if</span> args <span class="hljs-keyword">in</span> cache:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Using cached result&quot;</span>)<br>            <span class="hljs-keyword">return</span> cache[args]<br>        result = func(*args)<br>        cache[args] = result<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@cache_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">expensive_computation</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Computing for <span class="hljs-subst">&#123;x&#125;</span>&quot;</span>)<br>    <span class="hljs-keyword">return</span> x * x<br><br>expensive_computation(<span class="hljs-number">4</span>)<br>expensive_computation(<span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Computing for 4<br>Using cached result<br></code></pre></td></tr></table></figure>
+
+<h3 id="输入检查（Validation）"><a href="#输入检查（Validation）" class="headerlink" title="输入检查（Validation）"></a><strong>输入检查（Validation）</strong></h3><p>输入检查用于验证函数的参数是否合法，避免无效的输入导致错误。可以使用装饰器自动检查参数的类型或范围。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">validate_decorator</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">a, b</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">isinstance</span>(a, <span class="hljs-built_in">int</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">isinstance</span>(b, <span class="hljs-built_in">int</span>):<br>            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;Both arguments must be integers&quot;</span>)<br>        <span class="hljs-keyword">return</span> func(a, b)<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@validate_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>):<br>    <span class="hljs-keyword">return</span> a + b<br><br><span class="hljs-keyword">try</span>:<br>    add(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;three&quot;</span>)<br><span class="hljs-keyword">except</span> ValueError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Both arguments must be integers<br></code></pre></td></tr></table></figure>
+
+<h3 id="重试机制（Retry）"><a href="#重试机制（Retry）" class="headerlink" title="重试机制（Retry）"></a><strong>重试机制（Retry）</strong></h3><p>重试机制用于在函数失败时自动重试，特别是在处理不稳定的外部资源（如网络请求）时很有用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">retry_decorator</span>(<span class="hljs-params">retries=<span class="hljs-number">3</span></span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">        @wraps(<span class="hljs-params">func</span>)</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>            attempt = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">while</span> attempt &lt; retries:<br>                <span class="hljs-keyword">try</span>:<br>                    <span class="hljs-keyword">return</span> func(*args, **kwargs)<br>                <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Attempt <span class="hljs-subst">&#123;attempt + <span class="hljs-number">1</span>&#125;</span> failed with error: <span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)<br>                    attempt += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">f&quot;Function failed after <span class="hljs-subst">&#123;retries&#125;</span> retries&quot;</span>)<br>        <span class="hljs-keyword">return</span> wrapper<br>    <span class="hljs-keyword">return</span> decorator<br><br><span class="hljs-meta">@retry_decorator(<span class="hljs-params">retries=<span class="hljs-number">5</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">unstable_function</span>():<br>    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;Random failure&quot;</span>)<br><br><span class="hljs-keyword">try</span>:<br>    unstable_function()<br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Attempt 1 failed with error: Random failure<br>Attempt 2 failed with error: Random failure<br>Attempt 3 failed with error: Random failure<br>Attempt 4 failed with error: Random failure<br>Attempt 5 failed with error: Random failure<br>Function failed after 5 retries<br></code></pre></td></tr></table></figure>
+
+<h3 id="atexit装饰器"><a href="#atexit装饰器" class="headerlink" title="@atexit装饰器"></a><strong>@atexit装饰器</strong></h3><p><code>atexit</code>装饰器用于在程序退出之前自动执行某些操作，比如清理资源或记录日志。Python的<code>atexit</code>模块可以注册函数在程序退出时执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> atexit<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">goodbye</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Program is exiting. Goodbye!&quot;</span>)<br><br>atexit.register(goodbye)<br></code></pre></td></tr></table></figure>
+
+<p>当程序正常退出时，会打印：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Program is exiting. Goodbye!<br></code></pre></td></tr></table></figure>
+
+<h3 id="deprecated装饰器"><a href="#deprecated装饰器" class="headerlink" title="@deprecated装饰器"></a><strong>@deprecated装饰器</strong></h3><p><code>deprecated</code>装饰器用于标记一个函数已不推荐使用，提醒开发者在调用时使用替代方案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> warnings<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">deprecated</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">    @wraps(<span class="hljs-params">func</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        warnings.warn(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;func.__name__&#125;</span> is deprecated&quot;</span>, category=DeprecationWarning)<br>        <span class="hljs-keyword">return</span> func(*args, **kwargs)<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@deprecated</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">old_function</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;This function is old and deprecated.&quot;</span>)<br><br>old_function()<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">old_function is deprecated<br>This function is old and deprecated.<br></code></pre></td></tr></table></figure>
+
+<h2 id="Django中的装饰器"><a href="#Django中的装饰器" class="headerlink" title="Django中的装饰器"></a>Django中的装饰器</h2><p>在 Django 框架中，装饰器广泛用于简化代码、增强功能和实现一些常见的功能需求。</p>
+<p><strong>功能：</strong></p>
+<p><code>@login_required</code> 是 Django 中最常用的装饰器之一，确保用户在访问特定视图之前必须已经登录。它会检查当前请求的用户是否已经登录，未登录的用户将被重定向到登录页面。</p>
+<p><strong>使用示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.contrib.auth.decorators <span class="hljs-keyword">import</span> login_required<br><br><span class="hljs-meta">@login_required</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;You are logged in!&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果用户没有登录，Django 会将用户重定向到默认的登录页面（可以通过 <code>LOGIN_URL</code> 配置自定义登录页面）。</p>
+<p>自定义登录页面：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@login_required(<span class="hljs-params">login_url=<span class="hljs-string">&#x27;/custom-login/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Custom login page if not authenticated.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="permission-required"><a href="#permission-required" class="headerlink" title="@permission_required"></a><strong>@permission_required</strong></h3><p><strong>功能：</strong></p>
+<p><code>@permission_required</code> 用于检查用户是否具有特定的权限。它要求用户具备指定的权限才能访问视图。如果用户不具备该权限，系统会显示一个“403 Forbidden”错误或将用户重定向到指定页面。</p>
+<p><strong>使用示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.contrib.auth.decorators <span class="hljs-keyword">import</span> permission_required<br><br><span class="hljs-meta">@permission_required(<span class="hljs-params"><span class="hljs-string">&#x27;app_label.permission_codename&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;You have the necessary permission!&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>可以自定义权限不足时的重定向页面：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@permission_required(<span class="hljs-params"><span class="hljs-string">&#x27;app_label.permission_codename&#x27;</span>, login_url=<span class="hljs-string">&#x27;/no-permission/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;You are redirected due to insufficient permissions.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="user-passes-test"><a href="#user-passes-test" class="headerlink" title="@user_passes_test"></a><strong>@user_passes_test</strong></h3><p>功能：</p>
+<p><code>@user_passes_test</code> 是一个通用装饰器，允许你根据自定义的测试条件决定是否允许用户访问某个视图。你可以通过传递一个函数来进行验证。如果测试未通过，用户将被重定向到登录页面或指定页面。</p>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.contrib.auth.decorators <span class="hljs-keyword">import</span> user_passes_test<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_if_superuser</span>(<span class="hljs-params">user</span>):<br>    <span class="hljs-keyword">return</span> user.is_superuser<br><br><span class="hljs-meta">@user_passes_test(<span class="hljs-params">check_if_superuser</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">superuser_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;You are a superuser.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>自定义重定向页面：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@user_passes_test(<span class="hljs-params">check_if_superuser, login_url=<span class="hljs-string">&#x27;/no-access/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">superuser_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Only superusers can see this.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="csrf-exempt"><a href="#csrf-exempt" class="headerlink" title="@csrf_exempt"></a><strong>@csrf_exempt</strong></h3><p><strong>功能：</strong></p>
+<p>Django 默认开启了跨站请求伪造 (CSRF) 防护机制。<code>@csrf_exempt</code> 装饰器用于排除某些视图不进行 CSRF 检查，特别是在处理第三方系统的请求时非常有用。</p>
+<p><strong>使用示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.csrf <span class="hljs-keyword">import</span> csrf_exempt<br><br><span class="hljs-meta">@csrf_exempt</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;CSRF protection is disabled for this view.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>注意：在禁用 CSRF 防护时要小心，确保这个视图只用于安全的外部系统或只接受安全的请求。</p>
+<h3 id="require-http-methods"><a href="#require-http-methods" class="headerlink" title="@require_http_methods"></a><strong>@require_http_methods</strong></h3><p>功能：</p>
+<p><code>@require_http_methods</code> 限制视图只允许通过指定的 HTTP 方法（如 GET、POST 等）访问。它是简化对请求类型验证的一种快捷方式。</p>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.http <span class="hljs-keyword">import</span> require_http_methods<br><br><span class="hljs-meta">@require_http_methods(<span class="hljs-params">[<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;POST&quot;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;This view only allows GET and POST requests.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果客户端发送了非指定的 HTTP 方法（如 PUT、DELETE 等），服务器将返回 405 状态码（Method Not Allowed）。</p>
+<h3 id="require-GET-require-POST"><a href="#require-GET-require-POST" class="headerlink" title="@require_GET, @require_POST"></a><strong>@require_GET, @require_POST</strong></h3><p><strong>功能：</strong></p>
+<ul>
+<li><code>@require_GET</code>：确保视图只能通过 GET 请求访问。</li>
+<li><code>@require_POST</code>：确保视图只能通过 POST 请求访问。</li>
+</ul>
+<p><strong>使用示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.http <span class="hljs-keyword">import</span> require_GET, require_POST<br><br><span class="hljs-meta">@require_GET</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_get_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;This view only allows GET requests.&quot;</span>)<br><br><span class="hljs-meta">@require_POST</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_post_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;This view only allows POST requests.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="cache-page"><a href="#cache-page" class="headerlink" title="@cache_page"></a><strong>@cache_page</strong></h3><p><strong>功能：</strong></p>
+<p><code>@cache_page</code> 装饰器用于缓存视图的输出。它可以显著提升性能，尤其是对于经常被访问但不常变化的页面。</p>
+<p><strong>使用示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.cache <span class="hljs-keyword">import</span> cache_page<br><br><span class="hljs-meta">@cache_page(<span class="hljs-params"><span class="hljs-number">60</span> * <span class="hljs-number">15</span></span>)  </span><span class="hljs-comment"># 缓存时间为 15 分钟</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;This view is cached for 15 minutes.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>你可以通过缓存的时间长度来控制缓存失效的时间（以秒为单位）。此外，你可以根据 URL 或请求参数实现更复杂的缓存策略。</p>
+<h3 id="never-cache"><a href="#never-cache" class="headerlink" title="@never_cache"></a><strong>@never_cache</strong></h3><p>功能：</p>
+<p><code>@never_cache</code> 装饰器确保视图的响应永远不会被缓存。它可以用于那些内容经常变化且不应该被缓存的视图。</p>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.cache <span class="hljs-keyword">import</span> never_cache<br><br><span class="hljs-meta">@never_cache</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;This view should never be cached.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="vary-on-headers-vary-on-cookie"><a href="#vary-on-headers-vary-on-cookie" class="headerlink" title="@vary_on_headers, @vary_on_cookie"></a><strong>@vary_on_headers, @vary_on_cookie</strong></h3><p>功能：</p>
+<ul>
+<li><code>@vary_on_headers</code>：根据请求的 HTTP 头信息来区分缓存内容。</li>
+<li><code>@vary_on_cookie</code>：根据请求中的 Cookie 信息来区分缓存内容。</li>
+</ul>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.vary <span class="hljs-keyword">import</span> vary_on_headers, vary_on_cookie<br><br><span class="hljs-meta">@vary_on_headers(<span class="hljs-params"><span class="hljs-string">&quot;User-Agent&quot;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Vary on User-Agent.&quot;</span>)<br><br><span class="hljs-meta">@vary_on_cookie</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_cookie_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Vary on cookies.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这些装饰器通常结合缓存机制一起使用，可以实现针对不同用户、浏览器或请求的缓存控制。</p>
+<h3 id="transaction-atomic"><a href="#transaction-atomic" class="headerlink" title="@transaction.atomic"></a><strong>@transaction.atomic</strong></h3><p>功能：</p>
+<p><code>@transaction.atomic</code> 装饰器用于将视图的数据库操作封装在一个事务中。如果在视图执行过程中出现错误，所有的数据库操作都将回滚，确保数据一致性。</p>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> transaction<br><br><span class="hljs-meta">@transaction.atomic</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-comment"># 所有的数据库操作将在这里封装成一个事务</span><br>    ...<br></code></pre></td></tr></table></figure>
+
+<p>如果在视图中抛出异常，数据库的变更将不会被保存。</p>
+<h3 id="sensitive-post-parameters"><a href="#sensitive-post-parameters" class="headerlink" title="@sensitive_post_parameters"></a><strong>@sensitive_post_parameters</strong></h3><p>功能：</p>
+<p><code>@sensitive_post_parameters</code> 用于在处理敏感数据（如密码、信用卡号等）的视图中，防止这些数据出现在错误报告或日志中。它会将指定的 POST 参数标记为敏感信息，避免暴露。</p>
+<p>使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.views.decorators.debug <span class="hljs-keyword">import</span> sensitive_post_parameters<br><br><span class="hljs-meta">@sensitive_post_parameters(<span class="hljs-params"><span class="hljs-string">&#x27;password&#x27;</span>, <span class="hljs-string">&#x27;credit_card_number&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    password = request.POST[<span class="hljs-string">&#x27;password&#x27;</span>]<br>    credit_card_number = request.POST[<span class="hljs-string">&#x27;credit_card_number&#x27;</span>]<br>    ...<br></code></pre></td></tr></table></figure>
+
+<h2 id="Python装饰器与Java注解"><a href="#Python装饰器与Java注解" class="headerlink" title="Python装饰器与Java注解"></a>Python装饰器与Java注解</h2><p>Python 装饰器和 Java 注解是两种不同语言中用于增强代码功能的机制，虽然它们的语法和使用方式不同，但都可以用来对函数、类、方法或变量进行修饰或附加行为。</p>
+<h3 id="定义与用途"><a href="#定义与用途" class="headerlink" title="定义与用途"></a><strong>定义与用途</strong></h3><ul>
+<li><p><strong>Python 装饰器</strong>：<br>Python 装饰器是一种高阶函数，通常用于在不改变原有函数或方法代码的情况下，为其添加额外的功能。装饰器接受一个函数或类作为参数，返回一个被包装后的函数或类。常见用途包括日志记录、权限检查、性能监测、缓存等。</p>
+</li>
+<li><p><strong>Java 注解</strong>：<br>Java 注解（Annotation）是一种元数据标注形式，它为类、方法、字段等元素提供额外的信息。注解本身并不直接执行代码，而是通过编译器、框架或运行时机制（如反射）解析注解，并做出相应的处理。常见用途包括文档生成、代码检查、运行时行为定制等。</p>
+</li>
+</ul>
+<h3 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a><strong>运行机制</strong></h3><h4 id="Python-装饰器"><a href="#Python-装饰器" class="headerlink" title="Python 装饰器"></a>Python 装饰器</h4><ul>
+<li><p><strong>运行时处理</strong>：Python 装饰器在代码运行时对函数或类进行修饰。当装饰器被调用时，实际会执行包装的逻辑。它可以在函数调用之前、之后或者替换整个函数的行为。</p>
+</li>
+<li><p><strong>动态性强</strong>：装饰器可以动态地修改或增强函数的行为，不需要对原有的代码进行修改。由于 Python 是动态语言，这种动态修改的能力非常灵活。</p>
+</li>
+</ul>
+<h4 id="Java-注解"><a href="#Java-注解" class="headerlink" title="Java 注解"></a>Java 注解</h4><ul>
+<li><p><strong>编译时或运行时处理</strong>：Java 注解可以在编译时或运行时处理。像 <code>@Override</code> 这样的注解是在编译时检查的，而像 <code>@Entity</code>、<code>@Transactional</code> 等注解是由框架在运行时通过反射机制处理的。</p>
+</li>
+<li><p><strong>元数据驱动</strong>：注解提供的是元数据，不直接改变代码的执行逻辑。注解通常配合框架或者工具（如 Spring、Hibernate）一起使用，由这些工具根据注解来决定如何处理代码。</p>
+</li>
+</ul>
+<h3 id="常见用途"><a href="#常见用途" class="headerlink" title="常见用途"></a><strong>常见用途</strong></h3><h4 id="Python-装饰器的用途"><a href="#Python-装饰器的用途" class="headerlink" title="Python 装饰器的用途"></a>Python 装饰器的用途</h4><ul>
+<li><strong>日志记录</strong>：在函数执行前后记录日志信息。</li>
+<li><strong>权限检查</strong>：在访问敏感功能前进行权限验证。</li>
+<li><strong>性能监测</strong>：测量函数执行的时间。</li>
+<li><strong>缓存</strong>：缓存函数结果，避免重复计算。</li>
+<li><strong>输入校验</strong>：对函数输入进行参数校验。</li>
+</ul>
+<p>示例：权限检查装饰器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">require_admin</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">user, *args, **kwargs</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> user.is_admin:<br>            <span class="hljs-keyword">raise</span> PermissionError(<span class="hljs-string">&quot;Admin privileges required&quot;</span>)<br>        <span class="hljs-keyword">return</span> func(user, *args, **kwargs)<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@require_admin</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">delete_user</span>(<span class="hljs-params">user</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;User <span class="hljs-subst">&#123;user.name&#125;</span> deleted.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="Java-注解的用途"><a href="#Java-注解的用途" class="headerlink" title="Java 注解的用途"></a>Java 注解的用途</h4><ul>
+<li><strong>编译时检查</strong>：<code>@Override</code> 用于检查方法是否正确覆盖了父类的方法。</li>
+<li><strong>依赖注入</strong>：<code>@Autowired</code> 用于 Spring 框架中进行依赖注入。</li>
+<li><strong>事务管理</strong>：<code>@Transactional</code> 用于声明方法或类是事务性操作。</li>
+<li><strong>映射关系</strong>：<code>@Entity</code>、<code>@Table</code> 等用于 Hibernate 框架中映射数据库表。</li>
+<li><strong>测试</strong>：<code>@Test</code> 用于 JUnit 测试框架标识测试方法。</li>
+</ul>
+<p>示例：Spring 中的事务管理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.transaction.annotation.Transactional;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> &#123;<br><br>    <span class="hljs-meta">@Transactional</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performOperation</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 数据库操作将在一个事务中执行</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="差异与对比"><a href="#差异与对比" class="headerlink" title="差异与对比"></a><strong>差异与对比</strong></h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Python 装饰器</th>
+<th>Java 注解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>处理时间</strong></td>
+<td>运行时动态处理</td>
+<td>编译时和运行时（通过反射或框架处理）</td>
+</tr>
+<tr>
+<td><strong>功能</strong></td>
+<td>直接修改或增强函数&#x2F;类的行为</td>
+<td>提供元数据，不直接修改行为，通常通过框架或工具解析</td>
+</tr>
+<tr>
+<td><strong>灵活性</strong></td>
+<td>非常灵活，可用于任意函数或类，动态修改代码</td>
+<td>注解多为框架或工具依赖，元数据驱动</td>
+</tr>
+<tr>
+<td><strong>常见用途</strong></td>
+<td>日志、权限验证、性能监控、缓存、输入校验等</td>
+<td>编译时检查、依赖注入、事务管理、ORM 映射等</td>
+</tr>
+<tr>
+<td><strong>语法</strong></td>
+<td>使用高阶函数实现，修饰函数或类</td>
+<td>使用元数据标注，修饰类、方法、字段等</td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li><p><strong>Python 装饰器</strong>：是一个动态的、灵活的机制，可以修改或增强函数和类的行为，广泛用于日志记录、性能分析、权限验证等。</p>
+</li>
+<li><p><strong>Java 注解</strong>：是一种静态的元数据标注，通常用于编译时检查或通过框架在运行时处理。Java 注解的主要作用是通过工具或框架的解释为代码增加额外的行为。</p>
+</li>
+</ul>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h3 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h3><p>类装饰器的实现与函数装饰器类似，只是它接收和返回的是类对象。</p>
+<p>类装饰器是指<strong>装饰类</strong>，即使用装饰器修饰一个类，而不仅仅是函数或方法。这种装饰器和函数装饰器类似，主要是为了增强类的功能，修改类的行为，或者为类添加某些功能。</p>
+<p>当我们说“类装饰器”，一般是指<strong>作用在类上的装饰器</strong>，即用来修饰类的装饰器，而不是用类来实现的装饰器。类装饰器主要用于改变类的属性、方法或实例的行为，甚至可以返回一个修改过的类。</p>
+<p><strong>应用场景</strong></p>
+<ul>
+<li><strong>类的属性或方法自动增强</strong>：可以在不改变类定义的情况下，动态地修改或添加属性和方法。</li>
+<li><strong>类的注册机制</strong>：将类自动注册到某个管理系统中（比如某个全局注册表）。</li>
+<li><strong>单例模式</strong>：强制类只能创建一个实例。</li>
+<li><strong>权限控制</strong>：为某类对象的方法添加权限检查。</li>
+</ul>
+<p>类装饰器的语法</p>
+<p>类装饰器的使用和函数装饰器非常相似，使用 <code>@decorator_name</code> 的语法，装饰器接受类作为参数并返回修改后的类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">class_decorator</span>(<span class="hljs-params">cls</span>):<br>    <span class="hljs-comment"># 这里可以对类进行修改</span><br>    <span class="hljs-keyword">return</span> cls<br><br><span class="hljs-meta">@class_decorator</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">method</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">pass</span><br></code></pre></td></tr></table></figure>
+
+<p>示例</p>
+<ul>
+<li><strong>为类添加额外的方法</strong></li>
+</ul>
+<p>这是一个简单的类装饰器例子，它为类动态地添加一个新的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">add_method_decorator</span>(<span class="hljs-params">cls</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">new_method</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;This is a dynamically added method!&quot;</span><br>    <br>    cls.new_method = new_method<br>    <span class="hljs-keyword">return</span> cls<br><br><span class="hljs-meta">@add_method_decorator</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">original_method</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;This is the original method.&quot;</span><br><br><span class="hljs-comment"># 创建实例并调用方法</span><br>obj = MyClass()<br><span class="hljs-built_in">print</span>(obj.original_method())  <span class="hljs-comment"># 输出: This is the original method.</span><br><span class="hljs-built_in">print</span>(obj.new_method())       <span class="hljs-comment"># 输出: This is a dynamically added method!</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，装饰器 <code>add_method_decorator</code> 向类 <code>MyClass</code> 添加了一个 <code>new_method</code> 方法，而不需要修改类定义。装饰后的类实例可以调用这个新增的方法。</p>
+<ul>
+<li><strong>单例模式</strong></li>
+</ul>
+<p>单例模式是一种常见的设计模式，它确保一个类只能有一个实例。使用类装饰器可以优雅地实现这一点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">singleton</span>(<span class="hljs-params">cls</span>):<br>    instances = &#123;&#125;<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">get_instance</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        <span class="hljs-keyword">if</span> cls <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> instances:<br>            instances[cls] = cls(*args, **kwargs)<br>        <span class="hljs-keyword">return</span> instances[cls]<br><br>    <span class="hljs-keyword">return</span> get_instance<br><br><span class="hljs-meta">@singleton</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MySingletonClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, value</span>):<br>        self.value = value<br><br><span class="hljs-comment"># 创建两个实例</span><br>obj1 = MySingletonClass(<span class="hljs-number">10</span>)<br>obj2 = MySingletonClass(<span class="hljs-number">20</span>)<br><br><span class="hljs-comment"># 确保它们是同一个实例</span><br><span class="hljs-built_in">print</span>(obj1 <span class="hljs-keyword">is</span> obj2)  <span class="hljs-comment"># 输出: True</span><br><span class="hljs-built_in">print</span>(obj1.value)    <span class="hljs-comment"># 输出: 10</span><br><span class="hljs-built_in">print</span>(obj2.value)    <span class="hljs-comment"># 输出: 10</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>singleton</code> 装饰器通过内部字典 <code>instances</code> 缓存类的实例，确保每次调用时都返回同一个实例。尽管两次使用不同的参数创建对象，装饰器强制它们共享同一个实例。</p>
+<ul>
+<li><strong>类注册装饰器</strong></li>
+</ul>
+<p>类装饰器还可以用于自动注册类，这在大型应用中非常有用，比如在插件系统中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">registry = &#123;&#125;<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">register_class</span>(<span class="hljs-params">cls</span>):<br>    registry[cls.__name__] = cls<br>    <span class="hljs-keyword">return</span> cls<br><br><span class="hljs-meta">@register_class</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClassA</span>:<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-meta">@register_class</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClassB</span>:<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-comment"># 输出已注册的类</span><br><span class="hljs-built_in">print</span>(registry)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&#123;&#x27;MyClassA&#x27;: &lt;class &#x27;__main__.MyClassA&#x27;&gt;, &#x27;MyClassB&#x27;: &lt;class &#x27;__main__.MyClassB&#x27;&gt;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>register_class</code> 装饰器将类注册到全局的 <code>registry</code> 字典中，允许程序在其他地方动态地查找和使用这些类。</p>
+<h3 id="使用functools-wraps"><a href="#使用functools-wraps" class="headerlink" title="使用functools.wraps"></a>使用functools.wraps</h3><p><code>functools.wraps</code> 是一个装饰器，通常用于在自定义装饰器中保持被装饰函数的元数据（如函数名、文档字符串、注释等），以免被装饰器的内部函数覆盖。它能够让装饰过的函数看起来依然像原来的函数，从而保持一致性。</p>
+<p><strong>例子</strong></p>
+<p>下面我们使用 <code>functools.wraps</code> 来构建一个装饰器，记录函数的调用日志，并保证装饰后的函数保留原函数的元信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> functools<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">log_execution</span>(<span class="hljs-params">func</span>):<br><span class="hljs-meta">    @functools.wraps(<span class="hljs-params">func</span>)  </span><span class="hljs-comment"># 保留被装饰函数的元信息</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Executing &#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>&#x27; with arguments <span class="hljs-subst">&#123;args&#125;</span> and keyword arguments <span class="hljs-subst">&#123;kwargs&#125;</span>&quot;</span>)<br>        result = func(*args, **kwargs)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>&#x27; returned <span class="hljs-subst">&#123;result&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@log_execution</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;Returns the sum of two numbers.&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> a + b<br><br><span class="hljs-comment"># 调用函数</span><br>result = add(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Result: <span class="hljs-subst">&#123;result&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Function name: <span class="hljs-subst">&#123;add.__name__&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Function docstring: <span class="hljs-subst">&#123;add.__doc__&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Executing &#x27;add&#x27; with arguments (10, 20) and keyword arguments &#123;&#125;<br>&#x27;add&#x27; returned 30<br>Result: 30<br>Function name: add<br>Function docstring: Returns the sum of two numbers.<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>log_execution</code> 装饰器在函数执行前后打印日志，记录调用时的参数和返回值。由于我们使用了 <code>functools.wraps(func)</code>，装饰后的 <code>add</code> 函数依然保留了原函数的名称和文档字符串，否则它们会被内部的 <code>wrapper</code> 函数覆盖掉。</p>
+<p>如果不使用 <code>functools.wraps</code> 的效果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">log_execution</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Executing &#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>&#x27; with arguments <span class="hljs-subst">&#123;args&#125;</span> and keyword arguments <span class="hljs-subst">&#123;kwargs&#125;</span>&quot;</span>)<br>        result = func(*args, **kwargs)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&#x27;<span class="hljs-subst">&#123;func.__name__&#125;</span>&#x27; returned <span class="hljs-subst">&#123;result&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@log_execution</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>):<br>    <span class="hljs-keyword">return</span> a + b<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Function name: <span class="hljs-subst">&#123;add.__name__&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Function docstring: <span class="hljs-subst">&#123;add.__doc__&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Function name: wrapper<br>Function docstring: None<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，如果不使用 <code>functools.wraps</code>，<code>add</code> 函数的名称变成了 <code>wrapper</code>，而且原来的文档字符串也丢失了。因此，<code>functools.wraps</code> 非常重要，它确保装饰后的函数保留原始函数的元数据信息。</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/09/08/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      Linux命令手册
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">江</div><div class="matts">南</div><div class="matts">无</div><div class="matts">所</div><div class="matts">有</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">聊</div><div class="matts">赠</div><div class="matts">一</div><div class="matts">枝</div><div class="matts">春</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.mizu.ink/">Mizu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzkxNTYxODQ1NQ">神龟先生</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:LookingForWatch@outlook.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/FindingWatch">FindingWatch</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/bilibili.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://space.bilibili.com/38815605?spm_id_from=333.1007.0.0">徙</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/outlook.svg" />
+                <a class="foot-link" href="mailto:LookingForWatch@outlook.com">LookingForWatch@outlook.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://FindingWatch.github.io">Watch</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
