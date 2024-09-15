@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        Python特殊方法 | Watch
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/logo-rainbow.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/logo-rainbow32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/logo-rainbow16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo-rainbow.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-close"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo-rainbow.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/classical_poems">古典诗词</a>
+              
+                <a class="nav-menu-item" href="/computer_technology">技术文档</a>
+              
+                <a class="nav-menu-item" href="/what_i_see">我看见</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">Python特殊方法</div>
+        <div class="post-info">
+          
+  <a href="/tags/Python/" class="post-tag">#Python</a>
+
+
+          <span class="post-date">2024-09-15</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95"><span class="post-toc-text">常见的特殊方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%94%80%E6%AF%81"><span class="post-toc-text">对象的创建与销毁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%A1%A8%E7%A4%BA"><span class="post-toc-text">对象表示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AE%BF%E9%97%AE%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="post-toc-text">属性访问与管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E8%A1%8C%E4%B8%BA%EF%BC%88%E5%88%97%E8%A1%A8%E3%80%81%E5%AD%97%E5%85%B8%E7%AD%89%EF%BC%89"><span class="post-toc-text">容器行为（列表、字典等）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="post-toc-text">运算符重载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86"><span class="post-toc-text">上下文管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%B0%83%E7%94%A8%E4%B8%8E%E8%B0%83%E7%94%A8%E7%9B%B8%E5%85%B3"><span class="post-toc-text">调用与调用相关</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%8D%E5%B0%84%E6%93%8D%E4%BD%9C"><span class="post-toc-text">反射操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%93%88%E5%B8%8C%E4%B8%8E%E7%9B%B8%E7%AD%89%E6%80%A7"><span class="post-toc-text">哈希与相等性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%A8%E6%9E%90"><span class="post-toc-text">辨析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-%E5%92%8C-init"><span class="post-toc-text">__new__和__init__</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#str-%E5%92%8C-repr"><span class="post-toc-text">__str__和__repr__</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8B%93%E5%B1%95"><span class="post-toc-text">拓展</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="post-toc-text">迭代器</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Python 中的特殊方法（也称为“魔术方法”或“dunder 方法”，因为它们的名称前后有两个下划线，如 <code>__init__</code>）是 Python 类的一部分，用来定义对象的某些行为。这些方法在特定情况下被自动调用。它们可以帮助我们实现一些内置功能，比如运算符重载、对象创建、字符串表示等。</p>
+<h2 id="常见的特殊方法"><a href="#常见的特殊方法" class="headerlink" title="常见的特殊方法"></a>常见的特殊方法</h2><p>Python 中的魔术方法可以按照不同的类别进行划分，根据它们的功能和触发场景。下面将这些方法分为几大类，并逐一介绍：</p>
+<h3 id="对象的创建与销毁"><a href="#对象的创建与销毁" class="headerlink" title="对象的创建与销毁"></a><strong>对象的创建与销毁</strong></h3><ul>
+<li><p><strong><code>__new__(cls, ...)</code><strong>：</strong>作用</strong>：控制对象的创建过程，在对象创建之前被调用。通常不需要重写，除非需要自定义对象的创建逻辑。<code>__new__</code> 返回类的实例。</p>
+</li>
+<li><p><strong><code>__init__(self, ...)</code><strong>：</strong>作用</strong>：对象初始化方法，创建对象后立即调用，用于设置对象属性。</p>
+</li>
+<li><p><strong><code>__del__(self)</code><strong>：</strong>作用</strong>：对象销毁方法，当对象被垃圾回收时调用。可以用来执行清理操作，但不常使用。（在GC之前，Python会调用这个对象的__del__()方法完成一些终止化工作。如果没有__del__()方法，那么Python不做特殊的处理。）</p>
+</li>
+</ul>
+<h3 id="对象表示"><a href="#对象表示" class="headerlink" title="对象表示"></a><strong>对象表示</strong></h3><ul>
+<li><p>**<code>__str__(self)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义对象的<strong>用户友好</strong>字符串表示，当调用 <code>print()</code> 或 <code>str()</code> 时被触发。</li>
+</ul>
+</li>
+<li><p>**<code>__repr__(self)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义对象的<strong>官方</strong>字符串表示，通常用于调试。通过 <code>repr()</code> 或在解释器中直接调用对象时触发。</li>
+</ul>
+</li>
+<li><p>**<code>__format__(self, format_spec)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义对象的格式化输出，当使用 <code>format()</code> 函数或 <code>f-string</code> 时调用。</li>
+</ul>
+</li>
+<li><p>**<code>__bytes__(self)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义对象的字节表示，当调用 <code>bytes()</code> 函数时触发。</li>
+</ul>
+</li>
+</ul>
+<h3 id="属性访问与管理"><a href="#属性访问与管理" class="headerlink" title="属性访问与管理"></a>属性访问与管理</h3><p><strong><code>__getattr__(self, name)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：当你试图访问的属性不存在时，<code>__getattr__</code> 会被调用。它可以用于提供默认属性值或动态生成属性。</p>
+</li>
+<li><p><strong>注意</strong>：<code>__getattr__</code> 只在属性<strong>不存在</strong>时才被调用。如果属性存在，Python 会直接访问它，而不会调用 <code>__getattr__</code>。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.existing_attr = <span class="hljs-string">&quot;I exist&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getattr__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-comment"># 当属性不存在时，返回默认消息</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;Attribute &#x27;<span class="hljs-subst">&#123;name&#125;</span>&#x27; not found!&quot;</span><br><br>obj = MyClass()<br><span class="hljs-built_in">print</span>(obj.existing_attr)  <span class="hljs-comment"># 输出: I exist</span><br><span class="hljs-built_in">print</span>(obj.non_existing_attr)  <span class="hljs-comment"># 输出: Attribute &#x27;non_existing_attr&#x27; not found!</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong><code>__getattribute__(self, name)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：<code>__getattribute__</code> 是更底层的属性访问控制方法。无论属性是否存在，每次访问对象属性时都会调用它。一般不重写。</p>
+</li>
+<li><p><strong>注意</strong>：由于 <code>__getattribute__</code> 在所有属性访问时都会触发，因此使用时要非常小心，以避免无限递归（需要在函数内使用 <code>super()</code> 或 <code>object.__getattribute__()</code> 来访问属性）。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.existing_attr = <span class="hljs-string">&quot;I exist&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getattribute__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Trying to access <span class="hljs-subst">&#123;name&#125;</span>&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>().__getattribute__(name)  <span class="hljs-comment"># 正常返回属性值</span><br><br>obj = MyClass()<br><span class="hljs-built_in">print</span>(obj.existing_attr)  <span class="hljs-comment"># 输出: Trying to access existing_attr \n I exist</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，每次我们尝试访问属性时，都会打印出属性名称，并且通过 <code>super().__getattribute__(name)</code> 确保正常返回属性值。</p>
+<p><strong><code>__setattr__(self, name, value)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：每当你尝试设置对象的属性值时，<code>__setattr__</code> 会被调用。你可以使用它来控制属性赋值行为，比如验证、修改或记录赋值操作。</p>
+</li>
+<li><p><strong>注意</strong>：为了避免无限递归，在 <code>__setattr__</code> 内部你需要使用 <code>super().__setattr__(name, value)</code> 或 <code>object.__setattr__(self, name, value)</code> 来真正设置属性值，而不能直接使用 <code>self.name = value</code>，否则会再次调用 <code>__setattr__</code>。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.existing_attr = <span class="hljs-string">&quot;I exist&quot;</span>  <span class="hljs-comment"># __setattr__ 会被调用</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__setattr__</span>(<span class="hljs-params">self, name, value</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Setting <span class="hljs-subst">&#123;name&#125;</span> to <span class="hljs-subst">&#123;value&#125;</span>&quot;</span>)<br>        <span class="hljs-built_in">super</span>().__setattr__(name, value)  <span class="hljs-comment"># 使用父类的 setattr 赋值</span><br><br>obj = MyClass()<br>obj.new_attr = <span class="hljs-string">&quot;Hello&quot;</span>  <span class="hljs-comment"># 输出: Setting new_attr to Hello</span><br><span class="hljs-built_in">print</span>(obj.new_attr)  <span class="hljs-comment"># 输出: Hello</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong><code>__delattr__(self, name)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：当你使用 <code>del</code> 删除对象的属性时，<code>__delattr__</code> 会被调用。你可以控制是否允许删除某些属性或在删除时执行一些操作。</p>
+</li>
+<li><p><strong>注意</strong>：与 <code>__setattr__</code> 类似，要避免递归调用，你需要使用 <code>super().__delattr__(name)</code> 来删除属性，而不是直接 <code>del self.name</code>。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.existing_attr = <span class="hljs-string">&quot;I exist&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__delattr__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Deleting <span class="hljs-subst">&#123;name&#125;</span>&quot;</span>)<br>        <span class="hljs-built_in">super</span>().__delattr__(name)  <span class="hljs-comment"># 使用父类的 delattr 来真正删除属性</span><br><br>obj = MyClass()<br><span class="hljs-keyword">del</span> obj.existing_attr  <span class="hljs-comment"># 输出: Deleting existing_attr</span><br><span class="hljs-comment"># 尝试访问会抛出 AttributeError，因为属性已被删除</span><br><span class="hljs-comment"># print(obj.existing_attr)</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，当我们删除属性 <code>existing_attr</code> 时，<code>__delattr__</code> 会打印出属性名称，并通过 <code>super()</code> 调用父类方法实际删除属性。</p>
+<p><strong>完整示例：属性访问控制器</strong></p>
+<p>结合 <code>__getattr__</code>、<code>__setattr__</code> 和 <code>__delattr__</code>，我们可以实现一个属性访问控制器，动态生成属性并限制某些属性的删除。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.existing_attr = <span class="hljs-string">&quot;I exist&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getattr__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-comment"># 动态生成不存在的属性</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;Attribute &#x27;<span class="hljs-subst">&#123;name&#125;</span>&#x27; not found, dynamically generated value!&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__setattr__</span>(<span class="hljs-params">self, name, value</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Setting <span class="hljs-subst">&#123;name&#125;</span> to <span class="hljs-subst">&#123;value&#125;</span>&quot;</span>)<br>        <span class="hljs-built_in">super</span>().__setattr__(name, value)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__delattr__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-keyword">if</span> name == <span class="hljs-string">&#x27;protected_attr&#x27;</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Cannot delete <span class="hljs-subst">&#123;name&#125;</span>, it is protected!&quot;</span>)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Deleting <span class="hljs-subst">&#123;name&#125;</span>&quot;</span>)<br>            <span class="hljs-built_in">super</span>().__delattr__(name)<br><br>obj = MyClass()<br><br><span class="hljs-comment"># 动态访问不存在的属性</span><br><span class="hljs-built_in">print</span>(obj.some_attr)  <span class="hljs-comment"># 输出: Attribute &#x27;some_attr&#x27; not found, dynamically generated value!</span><br><br><span class="hljs-comment"># 设置新属性</span><br>obj.new_attr = <span class="hljs-string">&quot;New value&quot;</span>  <span class="hljs-comment"># 输出: Setting new_attr to New value</span><br><br><span class="hljs-comment"># 删除属性</span><br><span class="hljs-keyword">del</span> obj.new_attr  <span class="hljs-comment"># 输出: Deleting new_attr</span><br><br><span class="hljs-comment"># 尝试删除受保护的属性</span><br>obj.protected_attr = <span class="hljs-string">&quot;Can&#x27;t delete me&quot;</span><br><span class="hljs-keyword">del</span> obj.protected_attr  <span class="hljs-comment"># 输出: Cannot delete protected_attr, it is protected!</span><br></code></pre></td></tr></table></figure>
+
+<p><strong><code>property()</code> 与 <code>@property</code> 语法糖</strong></p>
+<p>除了上述魔术方法，Python 还提供了内置的 <code>property()</code> 函数和 <code>@property</code> 装饰器，用于简化属性访问和管理。这允许我们定义“getter”、“setter”和“deleter”方法。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self._value = <span class="hljs-number">0</span><br><br><span class="hljs-meta">    @property</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">value</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self._value<br><br><span class="hljs-meta">    @value.setter</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">value</span>(<span class="hljs-params">self, new_value</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Setting value to <span class="hljs-subst">&#123;new_value&#125;</span>&quot;</span>)<br>        self._value = new_value<br><br><span class="hljs-meta">    @value.deleter</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">value</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Deleting value&quot;</span>)<br>        <span class="hljs-keyword">del</span> self._value<br><br>obj = MyClass()<br>obj.value = <span class="hljs-number">10</span>  <span class="hljs-comment"># 输出: Setting value to 10</span><br><span class="hljs-built_in">print</span>(obj.value)  <span class="hljs-comment"># 输出: 10</span><br><span class="hljs-keyword">del</span> obj.value  <span class="hljs-comment"># 输出: Deleting value</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="容器行为（列表、字典等）"><a href="#容器行为（列表、字典等）" class="headerlink" title="容器行为（列表、字典等）"></a>容器行为（列表、字典等）</h3><p>在 Python 中，容器类（如列表、字典等）的行为可以通过魔术方法来定制。通过实现这些魔术方法，可以让自定义对象表现得像标准容器一样，支持索引访问、迭代、元素添加和删除等操作。</p>
+<p>下面将详细介绍 Python 中与容器行为相关的魔术方法，并附上代码示例。</p>
+<p><strong><code>__len__(self)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义容器的长度，当使用 <code>len()</code> 函数时会调用 <code>__len__</code>，它返回容器中元素的个数。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__len__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(self.data)  <span class="hljs-comment"># 返回容器的长度</span><br><br>obj = MyContainer([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(obj))  <span class="hljs-comment"># 输出: 4</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong><code>__getitem__(self, key)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义通过键或索引获取元素的行为。可以让对象表现得像列表、字典或其他可索引的容器。该方法是实现<strong>切片</strong>的关键。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__getitem__</span>(<span class="hljs-params">self, key</span>):<br>        <span class="hljs-keyword">return</span> self.data[key]  <span class="hljs-comment"># 根据索引或键返回元素</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br><span class="hljs-built_in">print</span>(obj[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 输出: 30</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__getitem__</code> 使得 <code>MyContainer</code> 对象可以像列表一样通过索引访问元素。</p>
+<p><strong><code>__setitem__(self, key, value)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义通过键或索引设置元素的行为。允许对象像列表或字典一样修改内部数据。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__setitem__</span>(<span class="hljs-params">self, key, value</span>):<br>        self.data[key] = value  <span class="hljs-comment"># 根据索引或键设置元素值</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br>obj[<span class="hljs-number">1</span>] = <span class="hljs-number">99</span>  <span class="hljs-comment"># 将索引 1 位置的值改为 99</span><br><span class="hljs-built_in">print</span>(obj.data)  <span class="hljs-comment"># 输出: [10, 99, 30, 40]</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__setitem__</code> 允许通过索引修改容器中的值。</p>
+<p><strong><code>__delitem__(self, key)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义通过键或索引删除元素的行为。让对象可以像列表或字典一样删除元素。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__delitem__</span>(<span class="hljs-params">self, key</span>):<br>        <span class="hljs-keyword">del</span> self.data[key]  <span class="hljs-comment"># 根据索引或键删除元素</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br><span class="hljs-keyword">del</span> obj[<span class="hljs-number">2</span>]  <span class="hljs-comment"># 删除索引 2 位置的元素</span><br><span class="hljs-built_in">print</span>(obj.data)  <span class="hljs-comment"># 输出: [10, 20, 40]</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__delitem__</code> 允许通过索引删除容器中的元素。</p>
+<p><strong><code>__iter__(self)</code> 和 <code>__next__(self)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：定义对象的迭代行为。通过实现 <code>__iter__()</code> 和 <code>__next__()</code>，可以让对象像列表一样进行迭代。<code>__iter__()</code> 返回一个迭代器对象，<code>__next__()</code> 返回容器的下一个元素。</p>
+</li>
+<li><p><strong>注意</strong>：通常 <code>__iter__</code> 返回的是对象本身，而 <code>__next__</code> 负责返回每个元素，迭代结束时抛出 <code>StopIteration</code>。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br>        self.index = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self  <span class="hljs-comment"># 返回迭代器本身</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">if</span> self.index &lt; <span class="hljs-built_in">len</span>(self.data):<br>            result = self.data[self.index]<br>            self.index += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> result<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">raise</span> StopIteration  <span class="hljs-comment"># 迭代结束时抛出 StopIteration 异常</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br><br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> obj:<br>    <span class="hljs-built_in">print</span>(item)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">10<br>20<br>30<br>40<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__iter__</code> 和 <code>__next__</code> 方法使 <code>MyContainer</code> 支持迭代器协议，允许我们使用 <code>for</code> 循环遍历对象。</p>
+<p><strong><code>__contains__(self, item)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义 <code>in</code> 运算符的行为，用于检查某个元素是否在容器中。<code>__contains__</code> 返回布尔值 <code>True</code> 或 <code>False</code>。</li>
+</ul>
+<p>示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__contains__</span>(<span class="hljs-params">self, item</span>):<br>        <span class="hljs-keyword">return</span> item <span class="hljs-keyword">in</span> self.data  <span class="hljs-comment"># 检查元素是否存在于容器中</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-number">20</span> <span class="hljs-keyword">in</span> obj)  <span class="hljs-comment"># 输出: True</span><br><span class="hljs-built_in">print</span>(<span class="hljs-number">50</span> <span class="hljs-keyword">in</span> obj)  <span class="hljs-comment"># 输出: False</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__contains__</code> 使得我们可以使用 <code>in</code> 运算符来检查 <code>MyContainer</code> 对象中是否包含某个元素。</p>
+<p><strong><code>__reversed__(self)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：定义当调用 <code>reversed()</code> 函数时的行为，使容器能够以相反顺序进行迭代。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContainer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__reversed__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">reversed</span>(self.data)  <span class="hljs-comment"># 反向迭代</span><br><br>obj = MyContainer([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>])<br><br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> <span class="hljs-built_in">reversed</span>(obj):<br>    <span class="hljs-built_in">print</span>(item)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">40<br>30<br>20<br>10<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__reversed__</code> 允许我们使用 <code>reversed()</code> 函数以相反顺序迭代 <code>MyContainer</code> 对象中的元素。</p>
+<h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><p>Python 中的运算符可以通过魔术方法进行重载，以便在类实例上执行这些运算符操作。常见的运算符及其对应的魔术方法包括：</p>
+<ul>
+<li><p><strong>算术运算符</strong>：</p>
+<ul>
+<li>**<code>__add__(self, other)</code>**：<code>+</code> 运算符</li>
+<li>**<code>__sub__(self, other)</code>**：<code>-</code> 运算符</li>
+<li>**<code>__mul__(self, other)</code>**：<code>*</code> 运算符</li>
+<li>**<code>__truediv__(self, other)</code>**：<code>/</code> 运算符</li>
+<li>**<code>__floordiv__(self, other)</code>**：<code>//</code> 运算符</li>
+<li>**<code>__mod__(self, other)</code>**：<code>%</code> 运算符</li>
+<li>**<code>__pow__(self, other)</code>**：<code>**</code> 运算符</li>
+</ul>
+</li>
+<li><p><strong>比较运算符</strong>：</p>
+<ul>
+<li>**<code>__eq__(self, other)</code>**：<code>==</code></li>
+<li>**<code>__ne__(self, other)</code>**：<code>!=</code></li>
+<li>**<code>__lt__(self, other)</code>**：<code>&lt;</code></li>
+<li>**<code>__le__(self, other)</code>**：<code>&lt;=</code></li>
+<li>**<code>__gt__(self, other)</code>**：<code>&gt;</code></li>
+<li>**<code>__ge__(self, other)</code>**：<code>&gt;=</code></li>
+</ul>
+</li>
+<li><p><strong>位运算符</strong>：</p>
+<ul>
+<li>**<code>__and__(self, other)</code>**：<code>&amp;</code></li>
+<li>**<code>__or__(self, other)</code>**：<code>|</code></li>
+<li>**<code>__xor__(self, other)</code>**：<code>^</code></li>
+<li>**<code>__lshift__(self, other)</code>**：<code>&lt;&lt;</code></li>
+<li>**<code>__rshift__(self, other)</code>**：<code>&gt;&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>一元运算符</strong>：</p>
+<ul>
+<li>**<code>__neg__(self)</code>**：<code>-</code> (取负)</li>
+<li>**<code>__pos__(self)</code>**：<code>+</code> (正号)</li>
+<li>**<code>__invert__(self)</code>**：<code>~</code> (按位取反)</li>
+</ul>
+</li>
+</ul>
+<h3 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h3><ul>
+<li><p><strong><code>__enter__(self)</code></strong> 和 **<code>__exit__(self, exc_type, exc_val, exc_tb)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：实现上下文管理协议，使对象可以与 <code>with</code> 语句一起使用。<code>__enter__</code> 在进入上下文时调用，<code>__exit__</code> 在退出上下文时调用。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyContext</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__enter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Entering context&quot;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__exit__</span>(<span class="hljs-params">self, exc_type, exc_value, traceback</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Exiting context&quot;</span>)<br><span class="hljs-keyword">with</span> MyContext():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Inside the context&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="调用与调用相关"><a href="#调用与调用相关" class="headerlink" title="调用与调用相关"></a>调用与调用相关</h3><ul>
+<li><p>**<code>__call__(self, ...)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：使对象可以像函数一样被调用。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">CallableClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__call__</span>(<span class="hljs-params">self, x</span>):<br>        <span class="hljs-keyword">return</span> x * <span class="hljs-number">2</span><br>obj = CallableClass()<br><span class="hljs-built_in">print</span>(obj(<span class="hljs-number">5</span>))  <span class="hljs-comment"># 输出: 10</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="反射操作"><a href="#反射操作" class="headerlink" title="反射操作"></a>反射操作</h3><ul>
+<li><p>**<code>__getattr__(self, name)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：当访问不存在的属性时被调用。可用于动态属性或提供默认值。</li>
+</ul>
+</li>
+<li><p>**<code>__setattr__(self, name, value)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：设置属性值时调用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="哈希与相等性"><a href="#哈希与相等性" class="headerlink" title="哈希与相等性"></a>哈希与相等性</h3><ul>
+<li><p>**<code>__hash__(self)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义对象的哈希值，使对象可用于集合、字典的键。</li>
+</ul>
+</li>
+<li><p>**<code>__eq__(self, other)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义相等性运算 (<code>==</code>)。</li>
+</ul>
+</li>
+<li><p>**<code>__ne__(self, other)</code>**：</p>
+<ul>
+<li><strong>作用</strong>：定义不等性运算 (<code>!=</code>)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="辨析"><a href="#辨析" class="headerlink" title="辨析"></a>辨析</h2><h3 id="new-和-init"><a href="#new-和-init" class="headerlink" title="__new__和__init__"></a><code>__new__</code>和<code>__init__</code></h3><p><code>__new__</code> 方法</p>
+<ul>
+<li><p><strong>作用</strong>：<code>__new__</code> 是一个静态方法，用于<strong>创建对象</strong>。在对象创建时，它负责<strong>分配内存</strong>并返回新实例。它是在类被调用时最先执行的方法，在 <code>__init__</code> 之前被调用。</p>
+</li>
+<li><p><strong>参数</strong>：<code>__new__(cls, ...)</code>，其中 <code>cls</code> 是当前类的引用，后面的参数是传递给类构造函数的参数。</p>
+</li>
+<li><p><strong>返回值</strong>：<code>__new__</code> 必须返回类的一个实例，通常通过 <code>super().__new__(cls)</code> 来实现，表示用父类的 <code>__new__</code> 方法创建对象。</p>
+</li>
+</ul>
+<p>适用场景：</p>
+<ul>
+<li>当你需要控制对象的创建过程时，例如实现单例模式（确保某个类只创建一个实例）或子类化不可变类型（如 <code>int</code>、<code>str</code>、<code>tuple</code>）时，可以使用 <code>__new__</code>。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__new__</span>(<span class="hljs-params">cls, *args, **kwargs</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Creating instance...&quot;</span>)<br>        instance = <span class="hljs-built_in">super</span>().__new__(cls)  <span class="hljs-comment"># 分配内存，创建对象</span><br>        <span class="hljs-keyword">return</span> instance<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Initializing instance...&quot;</span>)<br>        self.name = name<br><br>obj = MyClass(<span class="hljs-string">&quot;Alice&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Creating instance...<br>Initializing instance...<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__new__</code> 在对象创建时被调用，用于分配内存，而 <code>__init__</code> 随后负责初始化对象属性。</p>
+<p><strong><code>__init__</code> 方法</strong></p>
+<ul>
+<li><p><strong>作用</strong>：<code>__init__</code> 是用于<strong>初始化对象</strong>的。它在对象已经被 <code>__new__</code> 方法创建并分配内存之后调用，负责为对象设置初始状态（比如为实例变量赋值）。</p>
+</li>
+<li><p><strong>参数</strong>：<code>__init__(self, ...)</code>，其中 <code>self</code> 是当前对象的实例，后面的参数是传递给类构造函数的参数。</p>
+</li>
+<li><p><strong>返回值</strong>：<code>__init__</code> 没有返回值，因为它仅负责初始化对象。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Initializing instance...&quot;</span>)<br>        self.name = name<br><br>obj = MyClass(<span class="hljs-string">&quot;Alice&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Initializing instance...<br></code></pre></td></tr></table></figure>
+
+<p>这里 <code>__init__</code> 接受对象实例 <code>self</code> 作为第一个参数，用来设置对象的初始属性。</p>
+<p><strong><code>__new__</code> 和 <code>__init__</code> 的关系</strong></p>
+<ul>
+<li><code>__new__</code> 负责<strong>创建对象</strong>，在实例化过程中<strong>最先执行</strong>。</li>
+<li><code>__init__</code> 负责<strong>初始化对象</strong>，在 <code>__new__</code> 之后执行，设置对象的初始状态。</li>
+</ul>
+<p>它们在对象实例化过程中的执行顺序如下：</p>
+<ol>
+<li>调用 <code>__new__</code> 来创建对象，分配内存。</li>
+<li>如果 <code>__new__</code> 返回的对象是当前类的实例，Python 会自动调用 <code>__init__</code>，对该对象进行初始化。</li>
+<li></li>
+</ol>
+<p><strong>在子类中的使用</strong></p>
+<p>有时，在子类中需要重写 <code>__new__</code> 和 <code>__init__</code> 方法。例如，当我们继承不可变类型（如 <code>int</code> 或 <code>tuple</code>）时，通常需要自定义 <code>__new__</code>，因为这些类型的实例在创建之后无法修改。</p>
+<p>示例：子类化不可变类型 <code>int</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyInt</span>(<span class="hljs-title class_ inherited__">int</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__new__</span>(<span class="hljs-params">cls, value</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Calling __new__&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">super</span>().__new__(cls, value)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, value</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Calling __init__&quot;</span>)<br>        self.value = value<br><br>obj = MyInt(<span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(obj)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">Calling __new__<br>Calling __init__<br>10<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>MyInt</code> 继承了不可变类型 <code>int</code>，需要在 <code>__new__</code> 中控制对象的创建，因为 <code>int</code> 的实例一旦创建就不能改变。而 <code>__init__</code> 仅用于添加额外的属性。</p>
+<p><strong><code>__new__</code> 的典型使用场景：单例模式</strong></p>
+<p><code>__new__</code> 常用于实现单例模式，即保证一个类只能创建一个实例。</p>
+<p>示例：单例模式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span>:<br>    _instance = <span class="hljs-literal">None</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__new__</span>(<span class="hljs-params">cls, *args, **kwargs</span>):<br>        <span class="hljs-keyword">if</span> cls._instance <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>            cls._instance = <span class="hljs-built_in">super</span>().__new__(cls)<br>        <span class="hljs-keyword">return</span> cls._instance<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        self.name = name<br><br>obj1 = Singleton(<span class="hljs-string">&quot;Alice&quot;</span>)<br>obj2 = Singleton(<span class="hljs-string">&quot;Bob&quot;</span>)<br><br><span class="hljs-built_in">print</span>(obj1 <span class="hljs-keyword">is</span> obj2)  <span class="hljs-comment"># 输出: True</span><br><span class="hljs-built_in">print</span>(obj1.name)  <span class="hljs-comment"># 输出: Bob</span><br><span class="hljs-built_in">print</span>(obj2.name)  <span class="hljs-comment"># 输出: Bob</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__new__</code> 保证 <code>Singleton</code> 类只能有一个实例，即使多次调用类构造函数，返回的都是同一个实例。</p>
+<h3 id="str-和-repr"><a href="#str-和-repr" class="headerlink" title="__str__和__repr__"></a><code>__str_</code>_和<code>__repr__</code></h3><p><code>__str__</code> 和 <code>__repr__</code> 是 Python 中两个非常重要的魔术方法，用于定义对象的字符串表示形式。虽然它们都负责返回对象的字符串表示，但它们有不同的使用场景和目的。</p>
+<p><strong><code>__str__(self)</code></strong></p>
+<ul>
+<li><strong>作用</strong>：<code>__str__</code> 定义了对象的<strong>用户友好的</strong>字符串表示。当你使用 <code>str()</code> 函数或 <code>print()</code> 打印对象时，调用的是 <code>__str__</code> 方法。它的目的是返回一个易于阅读的字符串，供用户直接使用。</li>
+<li><strong>典型用途</strong>：输出对象的简明描述，主要供人类阅读。</li>
+</ul>
+<p><strong><code>__repr__(self)</code></strong></p>
+<ul>
+<li><p><strong>作用</strong>：<code>__repr__</code> 定义了对象的<strong>官方字符串表示</strong>，即面向开发者的表示形式。<code>repr()</code> 函数会调用 <code>__repr__</code> 方法，通常期望返回一个尽可能<strong>精确</strong>且<strong>完整</strong>的字符串，能够明确地表示这个对象，并且在某些情况下能够用于重新创建对象（<code>eval(repr(obj)) == obj</code> 这种方式）。</p>
+</li>
+<li><p><strong>典型用途</strong>：调试和日志记录时，开发者用来查看对象的详细信息，便于追踪程序行为。</p>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;MyClass(name=&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>&#x27;, age=<span class="hljs-subst">&#123;self.age&#125;</span>)&quot;</span><br><br>obj = MyClass(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">repr</span>(obj))  <span class="hljs-comment"># 输出: MyClass(name=&#x27;Alice&#x27;, age=30)</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>__repr__</code> 返回一个精确的、带有完整信息的字符串，这个字符串尽量能够帮助开发者了解对象的内部状态。</p>
+<p>注意：如果一个类没有实现 <code>__str__</code>，那么当你使用 <code>print()</code> 或 <code>str()</code> 函数时，Python 会退而调用 <code>__repr__</code>。</p>
+<p>如果一个类这两个方法都没有实现，那么当调用 <code>print()</code> 或 <code>str()</code> 时，Python 会使用该类的默认实现。这种默认行为由 <code>object</code> 类提供，返回一个包含类名和内存地址的字符串，表示对象的唯一标识符。</p>
+<p>示例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>obj = MyClass(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>)<br><span class="hljs-built_in">print</span>(obj)<br><span class="hljs-comment"># 输出 &lt;__main__.MyClass object at 0x7f83b2c4d880&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>解释</p>
+<ul>
+<li><code>__main__</code>: 表示该类定义在当前模块（也就是主程序模块）中。如果类定义在另一个模块中，这部分会显示模块名。</li>
+<li><code>MyClass</code>: 是类的名称。</li>
+<li><code>0x7f83b2c4d880</code>: 是该对象在内存中的地址（这是十六进制的内存地址，表示对象的唯一位置）。</li>
+</ul>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>在 Python 中，迭代是一种遍历容器（如列表、元组、字典、集合等）元素的方式。迭代器提供了一种访问容器元素的机制，避免显式使用索引。要理解迭代的工作原理，我们需要了解几个核心概念，包括迭代器（iterator）、可迭代对象（iterable）、<code>__iter__</code> 和 <code>__next__</code> 方法。</p>
+<p><strong>可迭代对象（Iterable）</strong></p>
+<ul>
+<li><strong>定义</strong>：一个对象是<strong>可迭代的</strong>，如果它实现了 <code>__iter__()</code> 方法，返回一个迭代器，或者它定义了一个 <code>__getitem__()</code> 方法（支持通过索引访问）。</li>
+<li><strong>示例</strong>：列表、元组、字符串、字典等都是可迭代对象。</li>
+</ul>
+<p>可迭代对象可以使用 <code>for</code> 循环进行迭代，或者通过 <code>iter()</code> 函数显式地获得它的迭代器。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> my_list:<br>    <span class="hljs-built_in">print</span>(item)<br><br><span class="hljs-comment"># 或者显式使用 iter()</span><br>it = <span class="hljs-built_in">iter</span>(my_list)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(it))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(it))  <span class="hljs-comment"># 输出: 2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(it))  <span class="hljs-comment"># 输出: 3</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>迭代器（Iterator）</strong></p>
+<ul>
+<li><strong>定义</strong>：一个对象是<strong>迭代器</strong>，如果它实现了 <code>__iter__()</code> 方法并返回自身，以及实现了 <code>__next__()</code> 方法。<code>__next__()</code> 方法返回下一个元素，当没有元素时抛出 <code>StopIteration</code> 异常。</li>
+<li><strong>特点</strong>：迭代器是一次性可消耗的，即迭代器只能遍历一次，遍历完就无法重新开始。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>iterator = <span class="hljs-built_in">iter</span>(my_list)  <span class="hljs-comment"># 创建一个迭代器</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator))  <span class="hljs-comment"># 输出: 2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator))  <span class="hljs-comment"># 输出: 3</span><br><span class="hljs-comment"># next(iterator)  # 这时调用会抛出 StopIteration 异常</span><br></code></pre></td></tr></table></figure>
+
+<p><strong><code>__iter__</code> 和 <code>__next__</code> 魔术方法</strong></p>
+<ul>
+<li><p>**<code>__iter__(self)</code>**：可迭代对象和迭代器都应该实现这个方法。对于可迭代对象，<code>__iter__()</code> 返回一个新的迭代器对象；对于迭代器，<code>__iter__()</code> 通常返回 <code>self</code>（即迭代器本身）。</p>
+</li>
+<li><p>**<code>__next__(self)</code>**：这是迭代器对象实现的关键方法。它返回序列中的下一个元素，如果序列结束，则抛出 <code>StopIteration</code> 异常。</p>
+</li>
+</ul>
+<p>自定义迭代器示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyIterator</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, data</span>):<br>        self.data = data<br>        self.index = <span class="hljs-number">0</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> self<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">if</span> self.index &lt; <span class="hljs-built_in">len</span>(self.data):<br>            item = self.data[self.index]<br>            self.index += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> item<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">raise</span> StopIteration<br><br>my_iter = MyIterator([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> my_iter:<br>    <span class="hljs-built_in">print</span>(item)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">1<br>2<br>3<br></code></pre></td></tr></table></figure>
+
+<p><strong>迭代的执行流程</strong></p>
+<ul>
+<li>当一个对象被用于 <code>for</code> 循环时，Python 会在后台调用该对象的 <code>__iter__()</code> 方法，以获取一个迭代器。</li>
+<li>然后，循环会反复调用迭代器的 <code>__next__()</code> 方法，直到抛出 <code>StopIteration</code> 异常为止。</li>
+</ul>
+<p>执行过程的分解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>iterator = <span class="hljs-built_in">iter</span>(my_list)  <span class="hljs-comment"># 获取迭代器</span><br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-keyword">try</span>:<br>        item = <span class="hljs-built_in">next</span>(iterator)<br>        <span class="hljs-built_in">print</span>(item)<br>    <span class="hljs-keyword">except</span> StopIteration:<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>生成器（Generators）</strong></p>
+<p>生成器是创建迭代器的一种简洁方式。它通过 <code>yield</code> 关键字逐步返回值，每次迭代时暂停函数的执行状态，保存上下文，以便下次继续。</p>
+<ul>
+<li><strong>定义生成器函数</strong>：生成器函数与普通函数的区别在于它使用了 <code>yield</code> 关键字，而不是 <code>return</code>。</li>
+<li><strong>生成器对象</strong>：调用生成器函数返回一个生成器对象，生成器对象是一个迭代器。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_generator</span>():<br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">3</span><br><br>gen = my_generator()<br><br><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> gen:<br>    <span class="hljs-built_in">print</span>(value)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">1<br>2<br>3<br></code></pre></td></tr></table></figure>
+
+<p>生成器的执行过程：</p>
+<p>生成器函数在每次调用 <code>next()</code> 时会暂停在 <code>yield</code> 语句，保存当前的状态，并在下一次调用时从该状态继续执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">gen = my_generator()<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 3</span><br><span class="hljs-comment"># next(gen)  # 这时调用会抛出 StopIteration 异常</span><br></code></pre></td></tr></table></figure>
+
+<p><strong><code>iter()</code> 函数与 <code>next()</code> 函数</strong></p>
+<ul>
+<li>**<code>iter(object)</code>**：返回对象的迭代器。该函数首先检查对象是否实现了 <code>__iter__</code> 方法，如果没有，则检查是否实现了 <code>__getitem__</code>，以支持通过索引访问。</li>
+<li>**<code>next(iterator, default)</code>**：调用迭代器的 <code>__next__()</code> 方法返回下一个元素。如果迭代结束，并且提供了 <code>default</code> 参数，则返回 <code>default</code>，否则抛出 <code>StopIteration</code>。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>iterator = <span class="hljs-built_in">iter</span>(my_list)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator))  <span class="hljs-comment"># 输出: 2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator, <span class="hljs-string">&quot;End of list&quot;</span>))  <span class="hljs-comment"># 输出: 3</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(iterator, <span class="hljs-string">&quot;End of list&quot;</span>))  <span class="hljs-comment"># 输出: End of list</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>可迭代对象和迭代器的区别</strong></p>
+<ul>
+<li><strong>可迭代对象</strong>：实现了 <code>__iter__()</code> 方法，可以返回一个迭代器，但它自身不一定是迭代器。</li>
+<li><strong>迭代器</strong>：实现了 <code>__iter__()</code> 和 <code>__next__()</code> 方法，且 <code>__iter__()</code> 通常返回自身，<code>__next__()</code> 负责返回序列中的下一个值。</li>
+</ul>
+<p>可迭代对象和迭代器的主要区别在于，迭代器一次性消耗，即遍历完后不能再次迭代；而可迭代对象每次调用 <code>__iter__</code> 方法都会返回一个新的迭代器。</p>
+<p><strong>惰性迭代</strong></p>
+<p>迭代器和生成器的一个重要特性是<strong>惰性迭代</strong>，即它们不会一次性生成所有元素，而是按需逐个生成。当我们需要处理非常大的数据集时，这种特性非常有用。</p>
+<p>示例：生成无限序列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">count</span>(<span class="hljs-params">start=<span class="hljs-number">0</span></span>):<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-keyword">yield</span> start<br>        start += <span class="hljs-number">1</span><br><br>counter = count()<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(counter))  <span class="hljs-comment"># 输出: 0</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(counter))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(counter))  <span class="hljs-comment"># 输出: 2</span><br></code></pre></td></tr></table></figure>
+
+<p>生成器 <code>count()</code> 将一直生成数字，直到被手动终止。</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/09/15/Python%E8%A3%85%E9%A5%B0%E5%99%A8/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      Python装饰器
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">江</div><div class="matts">南</div><div class="matts">无</div><div class="matts">所</div><div class="matts">有</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">聊</div><div class="matts">赠</div><div class="matts">一</div><div class="matts">枝</div><div class="matts">春</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.mizu.ink/">Mizu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzkxNTYxODQ1NQ">神龟先生</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:LookingForWatch@outlook.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/FindingWatch">FindingWatch</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/bilibili.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://space.bilibili.com/38815605?spm_id_from=333.1007.0.0">徙</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/outlook.svg" />
+                <a class="foot-link" href="mailto:LookingForWatch@outlook.com">LookingForWatch@outlook.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://FindingWatch.github.io">Watch</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
