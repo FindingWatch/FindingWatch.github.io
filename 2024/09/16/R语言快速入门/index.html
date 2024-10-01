@@ -171,7 +171,7 @@
           </div>
         
         <p>R语言是一种专为统计计算和数据分析设计的编程语言和软件环境，广泛用于数据科学、统计建模、数据可视化、机器学习等领域。</p>
-<p>R几乎是和Python一样简单明了，下面列举以下R语言的代码特殊地方，使一个有其他语言编程经验的人可以快速读懂R语言代码：</p>
+<p>R几乎是和Python一样简单明了，下面列举以下R语言的代码特殊地方，使一个使用其他语言编程的人可以快速读懂R语言代码：</p>
 <h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><h3 id="赋值符号"><a href="#赋值符号" class="headerlink" title="赋值符号"></a>赋值符号</h3><ul>
 <li><strong>R的独特之处</strong>：R中常用 <code>&lt;-</code> 来表示赋值，虽然 <code>=</code> 也可以用，但 <code>&lt;-</code> 更常见。</li>
 <li><strong>示例</strong>：<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs r">x <span class="hljs-operator">&lt;-</span> 10  <span class="hljs-comment"># 使用&lt;- 赋值</span><br>y <span class="hljs-operator">=</span> <span class="hljs-number">20</span>   <span class="hljs-comment"># 使用= 赋值</span><br></code></pre></td></tr></table></figure></li>
@@ -349,9 +349,7 @@
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs r"><span class="hljs-comment"># 加载SVM包</span><br>library<span class="hljs-punctuation">(</span>e1071<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># 创建SVM模型，预测 `Species`</span><br>svm_model <span class="hljs-operator">&lt;-</span> svm<span class="hljs-punctuation">(</span>Species <span class="hljs-operator">~</span> Sepal.Length <span class="hljs-operator">+</span> Sepal.Width<span class="hljs-punctuation">,</span> data<span class="hljs-operator">=</span>iris<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># 预测分类</span><br>svm_predictions <span class="hljs-operator">&lt;-</span> predict<span class="hljs-punctuation">(</span>svm_model<span class="hljs-punctuation">,</span> iris<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># 查看预测结果</span><br>print<span class="hljs-punctuation">(</span>table<span class="hljs-punctuation">(</span>svm_predictions<span class="hljs-punctuation">,</span> iris<span class="hljs-operator">$</span>Species<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li><p><code>svm()</code> 函数用于构建支持向量机模型，适合于线性不可分的分类问题。</p>
-</li>
-<li></li>
+<li><code>svm()</code> 函数用于构建支持向量机模型，适合于线性不可分的分类问题。</li>
 </ul>
 
       </div>
