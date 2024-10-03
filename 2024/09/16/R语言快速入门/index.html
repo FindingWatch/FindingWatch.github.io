@@ -170,7 +170,7 @@
             
           </div>
         
-        <p>R语言是一种专为统计计算和数据分析设计的编程语言和软件环境，广泛用于数据科学、统计建模、数据可视化、机器学习等领域。</p>
+        <p>R语言是一种专为统计计算和数据分析设计的编程语言和软件环境，广泛用于数据科学、统计建模、数据可视化、机器学习等领域。（事实上，除了极少领域，R已经被Python全方位替代了🤣）</p>
 <p>R几乎是和Python一样简单明了，下面列举以下R语言的代码特殊地方，使一个使用其他语言编程的人可以快速读懂R语言代码：</p>
 <h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><h3 id="赋值符号"><a href="#赋值符号" class="headerlink" title="赋值符号"></a>赋值符号</h3><ul>
 <li><strong>R的独特之处</strong>：R中常用 <code>&lt;-</code> 来表示赋值，虽然 <code>=</code> 也可以用，但 <code>&lt;-</code> 更常见。</li>
@@ -193,10 +193,7 @@
 <li><p><strong>示例</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">r复制代码x &lt;- c(10, 20, 30, 40, 50)<br>print(x[-2])  # 输出: 10 30 40 50，排除了第2个元素20<br>print(x[-c(1, 3)])  # 输出: 20 40 50，排除了第1和第3个元素<br></code></pre></td></tr></table></figure>
 </li>
-<li><p><strong>说明</strong>：负数索引告诉R排除指定位置的元素，与其他编程语言不同，R中没有直接的删除操作，而是通过负数索引实现过滤。在Python中负数索引表述倒数</p>
-<ul>
-<li></li>
-</ul>
+<li><p><strong>说明</strong>：负数索引告诉R排除指定位置的元素，与其他编程语言不同，R中没有直接的删除操作，而是通过负数索引实现过滤。在Python中负数索引倒数。</p>
 </li>
 </ul>
 <h3 id="函数定义与返回值"><a href="#函数定义与返回值" class="headerlink" title="函数定义与返回值"></a>函数定义与返回值</h3><ul>
@@ -367,7 +364,19 @@
     
     <div class="post-nav">
   
-    <div class="post-nav-item-left"></div>
+    <a class="post-nav-item-left" href="/2024/10/03/LINQ/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>LINQ</div>
+    </a>
   
   <div class="vhr"></div>
   

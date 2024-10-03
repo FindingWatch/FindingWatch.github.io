@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        LINQ | Watch
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/logo-rainbow.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/logo-rainbow32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/logo-rainbow16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo-rainbow.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-close"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo-rainbow.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/classical_poems">古典诗词</a>
+              
+                <a class="nav-menu-item" href="/computer_technology">技术文档</a>
+              
+                <a class="nav-menu-item" href="/what_i_see">我看见</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">LINQ</div>
+        <div class="post-info">
+          
+  <a href="/tags/NET/" class="post-tag">#.NET</a>
+
+
+          <span class="post-date">2024-10-03</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFLINQ"><span class="post-toc-text">什么是LINQ</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LINQ-%E7%9A%84%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="post-toc-text">LINQ 的主要组成部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LINQ-%E7%9A%84%E8%AF%AD%E6%B3%95%E5%BD%A2%E5%BC%8F"><span class="post-toc-text">LINQ 的语法形式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95%E5%92%8C%E6%96%B9%E6%B3%95%E9%93%BE%E8%AF%AD%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="post-toc-text">查询表达式语法和方法链语法的对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-LINQ-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="post-toc-text">常用的 LINQ 操作符</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h3 id="什么是LINQ"><a href="#什么是LINQ" class="headerlink" title="什么是LINQ"></a>什么是LINQ</h3><p>LINQ（Language-Integrated Query，语言集成查询）是微软在 .NET 框架中引入的一种数据查询方法。它允许开发者使用类似于 SQL 的语法，在编程语言（如 C#、VB.NET）中直接对各种数据源（如集合、数据库、XML 等）进行查询操作。LINQ 的主要优势在于其统一的查询语法和与编程语言的紧密集成，使得数据操作更加简洁、类型安全且易于维护。</p>
+<h3 id="LINQ-的主要组成部分"><a href="#LINQ-的主要组成部分" class="headerlink" title="LINQ 的主要组成部分"></a>LINQ 的主要组成部分</h3><p>LINQ 支持查询不同类型的数据源，主要包括以下几个部分：</p>
+<ol>
+<li><p><strong>LINQ to Objects</strong></p>
+<ul>
+<li><strong>功能</strong>：用于对内存中的对象集合（如 <code>List&lt;T&gt;</code>、<code>Array</code>、<code>Dictionary&lt;T&gt;</code> 等）进行查询和操作。它不需要任何外部资源，完全基于 .NET 集合框架。</li>
+<li><strong>使用场景</strong>：当你有内存中的数据，如通过计算生成的数据或从文件中读取的数据时，使用 LINQ to Objects 进行过滤、排序、分组等操作非常方便。</li>
+<li><strong>示例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp">List&lt;<span class="hljs-built_in">int</span>&gt; numbers = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">int</span>&gt; &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span> &#125;;<br><span class="hljs-comment">// 查询所有偶数</span><br><span class="hljs-keyword">var</span> evenNumbers = <span class="hljs-keyword">from</span> num <span class="hljs-keyword">in</span> numbers<br>                  <span class="hljs-keyword">where</span> num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br>                  <span class="hljs-keyword">select</span> num;<br><span class="hljs-comment">// 使用方法链语法</span><br><span class="hljs-keyword">var</span> evenNumbersMethod = numbers.Where(num =&gt; num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>).ToList();<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>LINQ to SQL</strong></p>
+<ul>
+<li><strong>功能</strong>：用于查询 SQL Server 数据库，将数据库表映射为 .NET 类，允许使用 LINQ 语法执行查询操作。它的目标是让开发者用更直观的面向对象方式与数据库进行交互，而不是通过 SQL 字符串。</li>
+<li><strong>使用场景</strong>：当你想要访问 SQL Server 数据库并进行 CRUD 操作时，可以使用 LINQ to SQL。你可以将数据库中的表与 .NET 对象一一映射，通过查询表达式来操作数据。</li>
+<li><strong>示例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> db = <span class="hljs-keyword">new</span> DataContext())<br>&#123;<br>    <span class="hljs-comment">// 查询来自 &quot;Customers&quot; 表的所有北京的客户</span><br>    <span class="hljs-keyword">var</span> beijingCustomers = <span class="hljs-keyword">from</span> customer <span class="hljs-keyword">in</span> db.GetTable&lt;Customer&gt;()<br>                           <span class="hljs-keyword">where</span> customer.City == <span class="hljs-string">&quot;Beijing&quot;</span><br>                           <span class="hljs-keyword">select</span> customer;<br>    <span class="hljs-comment">// 或者使用方法链语法</span><br>    <span class="hljs-keyword">var</span> beijingCustomersMethod = db.GetTable&lt;Customer&gt;().Where(c =&gt; c.City == <span class="hljs-string">&quot;Beijing&quot;</span>).ToList();<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>LINQ to XML</strong></p>
+<ul>
+<li><strong>功能</strong>：用于处理 XML 数据，提供了一种方便的方式来查询、创建和修改 XML 文档。它与传统的 <code>System.Xml</code> 类库不同，更加简洁、直观。</li>
+<li><strong>使用场景</strong>：当你需要读取、查询或生成 XML 数据时，LINQ to XML 是一种强大的工具。它可以在应用程序中动态解析和处理 XML 数据。</li>
+<li><strong>示例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 读取并查询 XML 文件</span><br>XDocument doc = XDocument.Load(<span class="hljs-string">&quot;books.xml&quot;</span>);<br><span class="hljs-keyword">var</span> books = <span class="hljs-keyword">from</span> book <span class="hljs-keyword">in</span> doc.Descendants(<span class="hljs-string">&quot;book&quot;</span>)<br>            <span class="hljs-keyword">where</span> (<span class="hljs-built_in">string</span>)book.Element(<span class="hljs-string">&quot;author&quot;</span>) == <span class="hljs-string">&quot;J.K. Rowling&quot;</span><br>            <span class="hljs-keyword">select</span> book;<br><br><span class="hljs-comment">// 使用方法链语法</span><br><span class="hljs-keyword">var</span> booksMethod = doc.Descendants(<span class="hljs-string">&quot;book&quot;</span>).Where(b =&gt; (<span class="hljs-built_in">string</span>)b.Element(<span class="hljs-string">&quot;author&quot;</span>) == <span class="hljs-string">&quot;J.K. Rowling&quot;</span>);<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>LINQ to Entities（Entity Framework）</strong></p>
+<ul>
+<li><strong>功能</strong>：基于 Entity Framework（EF）的 LINQ 查询方式，通过 ORM（对象关系映射）技术将数据库中的表映射为实体类，使得开发者可以使用 LINQ 对数据库进行查询和操作。LINQ to Entities 是 LINQ to SQL 的一个升级版，支持更多的数据库（不仅仅是 SQL Server）。</li>
+<li><strong>使用场景</strong>：当你使用 Entity Framework 时，LINQ to Entities 可以让你通过实体类来查询数据库，而不需要直接编写 SQL 语句。</li>
+<li><strong>示例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> MyDbContext())<br>&#123;<br>    <span class="hljs-comment">// 查询价格大于 100 的所有产品</span><br>    <span class="hljs-keyword">var</span> expensiveProducts = <span class="hljs-keyword">from</span> product <span class="hljs-keyword">in</span> context.Products<br>                            <span class="hljs-keyword">where</span> product.Price &gt; <span class="hljs-number">100</span><br>                            <span class="hljs-keyword">select</span> product;<br>    <br>    <span class="hljs-comment">// 使用方法链语法</span><br>    <span class="hljs-keyword">var</span> expensiveProductsMethod = context.Products.Where(p =&gt; p.Price &gt; <span class="hljs-number">100</span>).ToList();<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>LINQ to DataSet</strong></p>
+<ul>
+<li><strong>功能</strong>：用于查询 <code>DataSet</code> 或 <code>DataTable</code> 对象，它们通常从数据库或 XML 文件中填充数据。LINQ to DataSet 提供了一种方便的方法来查询 ADO.NET 数据结构。</li>
+<li><strong>使用场景</strong>：当你使用传统的 ADO.NET 数据集和表结构时，LINQ to DataSet 可以让你用类似 SQL 的语法查询这些结构，而不必手动遍历行。</li>
+<li><strong>示例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp">DataSet ds = GetDataSet(); <span class="hljs-comment">// 假设已经有数据集</span><br><span class="hljs-keyword">var</span> products = <span class="hljs-keyword">from</span> product <span class="hljs-keyword">in</span> ds.Tables[<span class="hljs-string">&quot;Products&quot;</span>].AsEnumerable()<br>               <span class="hljs-keyword">where</span> product.Field&lt;<span class="hljs-built_in">decimal</span>&gt;(<span class="hljs-string">&quot;Price&quot;</span>) &gt; <span class="hljs-number">100</span><br>               <span class="hljs-keyword">select</span> product;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="LINQ-的语法形式"><a href="#LINQ-的语法形式" class="headerlink" title="LINQ 的语法形式"></a>LINQ 的语法形式</h3><p>LINQ 提供了两种主要的查询语法，每种都有其独特的用途：</p>
+<ol>
+<li><p><strong>查询表达式语法（Query Expression Syntax）</strong>：</p>
+<ul>
+<li><strong>描述</strong>：它是一种类 SQL 的语法，开发者使用 <code>from</code>, <code>where</code>, <code>select</code>, <code>group by</code>, <code>orderby</code> 等关键字来编写查询表达式。这种语法更加接近自然语言，特别适合熟悉 SQL 的开发者。</li>
+<li><strong>优势</strong>：当你需要处理复杂的查询时，如分组、连接等，查询表达式语法会让代码更易读、更直观。</li>
+<li><strong>例子</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> numbers = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">int</span>&gt; &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span> &#125;;<br><br><span class="hljs-comment">// 查询所有偶数</span><br><span class="hljs-keyword">var</span> evenNumbers = <span class="hljs-keyword">from</span> num <span class="hljs-keyword">in</span> numbers<br>                  <span class="hljs-keyword">where</span> num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br>                  <span class="hljs-keyword">select</span> num;<br><br><span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> evenNumbers)<br>&#123;<br>    Console.WriteLine(number); <span class="hljs-comment">// 输出 2, 4, 6</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>方法链语法（Method Syntax 或 Fluent Syntax）</strong>：</p>
+<ul>
+<li><strong>描述</strong>：这种语法基于扩展方法（即集合类上的 <code>.Where()</code>、<code>.Select()</code> 等方法），可以通过链式调用来构建查询。它通常更加灵活，适合函数式编程风格。</li>
+<li><strong>优势</strong>：方法链语法在处理简单查询时十分高效，且与 .NET 的其他函数式编程方法（如 <code>lambda 表达式</code>）结合使用时非常强大。</li>
+<li><strong>例子</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> numbers = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">int</span>&gt; &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span> &#125;;<br><br><span class="hljs-comment">// 使用方法链语法查询所有偶数</span><br><span class="hljs-keyword">var</span> evenNumbers = numbers.Where(num =&gt; num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>);<br><br><span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> evenNumbers)<br>&#123;<br>    Console.WriteLine(number); <span class="hljs-comment">// 输出 2, 4, 6</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="查询表达式语法和方法链语法的对比"><a href="#查询表达式语法和方法链语法的对比" class="headerlink" title="查询表达式语法和方法链语法的对比"></a>查询表达式语法和方法链语法的对比</h3><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>查询表达式语法</th>
+<th>方法链语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语法风格</td>
+<td>类 SQL</td>
+<td>函数式编程</td>
+</tr>
+<tr>
+<td>适合场景</td>
+<td>复杂查询（分组、连接、嵌套查询）</td>
+<td>简单、灵活的查询（过滤、投影等）</td>
+</tr>
+<tr>
+<td>代码可读性</td>
+<td>类似自然语言，易于理解</td>
+<td>更简洁，但对于复杂查询的可读性可能较差</td>
+</tr>
+<tr>
+<td>表达的灵活性</td>
+<td>稍微不如方法链灵活，某些高级操作需要转为方法链</td>
+<td>灵活，支持所有扩展方法、lambda 表达式等</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>熟悉 SQL 的人容易上手</td>
+<td>需要掌握扩展方法和 lambda 表达式</td>
+</tr>
+</tbody></table>
+<h3 id="常用的-LINQ-操作符"><a href="#常用的-LINQ-操作符" class="headerlink" title="常用的 LINQ 操作符"></a>常用的 LINQ 操作符</h3><ul>
+<li><strong>Where</strong>：筛选集合中的元素。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> result = numbers.Where(n =&gt; n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure></li>
+<li><strong>Select</strong>：投影（映射）操作，返回新的集合。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> squares = numbers.Select(n =&gt; n * n);<br></code></pre></td></tr></table></figure></li>
+<li><strong>OrderBy&#x2F;OrderByDescending</strong>：排序。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> ordered = numbers.OrderBy(n =&gt; n);<br></code></pre></td></tr></table></figure></li>
+<li><strong>GroupBy</strong>：对集合分组。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> groups = numbers.GroupBy(n =&gt; n % <span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure></li>
+<li><strong>Join</strong>：连接两个集合。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> result = <span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> customers<br>             <span class="hljs-keyword">join</span> o <span class="hljs-keyword">in</span> orders <span class="hljs-keyword">on</span> c.CustomerId <span class="hljs-keyword">equals</span> o.CustomerId<br>             <span class="hljs-keyword">select</span> <span class="hljs-keyword">new</span> &#123; c.Name, o.OrderDate &#125;;<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/09/16/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      R语言快速入门
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">江</div><div class="matts">南</div><div class="matts">无</div><div class="matts">所</div><div class="matts">有</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">聊</div><div class="matts">赠</div><div class="matts">一</div><div class="matts">枝</div><div class="matts">春</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.mizu.ink/">Mizu</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzkxNTYxODQ1NQ">神龟先生</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:LookingForWatch@outlook.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/FindingWatch">FindingWatch</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/bilibili.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://space.bilibili.com/38815605?spm_id_from=333.1007.0.0">徙</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/outlook.svg" />
+                <a class="foot-link" href="mailto:LookingForWatch@outlook.com">LookingForWatch@outlook.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="https://FindingWatch.github.io">Watch</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
