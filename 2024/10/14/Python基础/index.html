@@ -174,7 +174,7 @@
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>注意Python在声明变量时并不需要指定数据类型</p>
 <h3 id="简单类型"><a href="#简单类型" class="headerlink" title="简单类型"></a>简单类型</h3><ul>
 <li><strong>整数(int)</strong></li>
-<li>**浮点数(float)**【注意Python没有Double类型】</li>
+<li><strong>浮点数(float)</strong> 【注意Python没有Double类型】</li>
 <li><strong>复数(complex)</strong></li>
 <li><strong>字符串(str)</strong></li>
 <li><strong>布尔值(bool)</strong></li>
@@ -254,7 +254,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(objects, sep=<span class="hljs-string">&#x27; &#x27;</span>, end=<span class="hljs-string">&#x27;\n&#x27;</span>, file=sys.stdout, flush=<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>默认打印完成自动换行 end&#x3D;’\n’，相当于Java里的System.out.**println()**。</li>
+<li>默认打印完成自动换行 end&#x3D;’\n’，相当于Java里的System.out.println()。</li>
 <li>默认打印对象之间使用一个空格连接sep&#x3D;’ ‘。</li>
 <li>默认在控制台打印file&#x3D;sys.stdout，亦可写入指定文件。</li>
 <li>默认情况下，print() 函数会在遇到换行符时自动刷新输出。如果想要立即刷新输出，可以将 flush 参数设置为 True。</li>
@@ -319,27 +319,25 @@
 
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="创建-初始化"><a href="#创建-初始化" class="headerlink" title="创建&#x2F;初始化"></a>创建&#x2F;初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python">lst = []<br><span class="hljs-comment"># 或者</span><br>lst = <span class="hljs-built_in">list</span>()<br><br><span class="hljs-comment"># 创建一个包含5个元素的列表，每个元素为0</span><br>lst = [<span class="hljs-number">0</span>] * <span class="hljs-number">5</span>  <span class="hljs-comment"># [0, 0, 0, 0, 0]</span><br><br><span class="hljs-comment"># 创建包含偶数的列表</span><br>lst_even = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>]<br><br><span class="hljs-comment">#使用 list() 函数将其他可迭代对象转换为列表</span><br>lst = <span class="hljs-built_in">list</span>(<span class="hljs-string">&quot;hello&quot;</span>)  <span class="hljs-comment"># [&#x27;h&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;]</span><br>lst = <span class="hljs-built_in">list</span>((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># [1, 2, 3]</span><br>lst = <span class="hljs-built_in">list</span>(&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;)  <span class="hljs-comment"># [1, 2, 3]，顺序可能不同</span><br><br><span class="hljs-comment"># 创建包含0到9的列表</span><br>lst = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))  <span class="hljs-comment"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><br><span class="hljs-comment"># m*n二维列表并初始化为1</span><br>matrix = [[<span class="hljs-number">1</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m)]<br></code></pre></td></tr></table></figure>
 
-
-
-<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>**append(x)**：在列表末尾添加一个元素 <code>x</code>。</p>
+<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>append(x)：在列表末尾添加一个元素 <code>x</code>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">lst = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>lst.append(<span class="hljs-number">4</span>)  <span class="hljs-comment"># [1, 2, 3, 4]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="删除元素-1"><a href="#删除元素-1" class="headerlink" title="删除元素"></a>删除元素</h3><p>**pop([i])**：删除并返回指定索引 <code>i</code> 处的元素。不指定索引时，默认删除并返回最后一个元素。</p>
+<h3 id="删除元素-1"><a href="#删除元素-1" class="headerlink" title="删除元素"></a>删除元素</h3><p>pop([i])：删除并返回指定索引 <code>i</code> 处的元素。不指定索引时，默认删除并返回最后一个元素。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">lst.pop()     <span class="hljs-comment"># [1, 2, 3, 4, 6]</span><br>lst.pop(<span class="hljs-number">1</span>)    <span class="hljs-comment"># [1, 3, 4, 6]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>**sort(key&#x3D;None, reverse&#x3D;False)**：对列表进行原地排序。<code>key</code> 是一个函数，用来指定排序规则；<code>reverse=True</code> 表示降序排序。</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>sort(key&#x3D;None, reverse&#x3D;False)：对列表进行原地排序。<code>key</code> 是一个函数，用来指定排序规则；<code>reverse=True</code> 表示降序排序。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">lst = [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>]<br>lst.sort()          <span class="hljs-comment"># [1, 2, 3, 4]</span><br>lst.sort(reverse=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># [4, 3, 2, 1]</span><br></code></pre></td></tr></table></figure>
 
-<p>**sorted(list, key&#x3D;None, reverse&#x3D;False)**：返回一个排序后的新列表，不改变原列表。</p>
+<p>sorted(list, key&#x3D;None, reverse&#x3D;False)：返回一个排序后的新列表，不改变原列表。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">sorted_lst = <span class="hljs-built_in">sorted</span>(lst)  <span class="hljs-comment"># 原列表 lst 保持不变</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h3><p>**len(list)**：返回列表中元素的数量。</p>
+<h3 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h3><p>len(list)：返回列表中元素的数量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">length = <span class="hljs-built_in">len</span>(lst)  <span class="hljs-comment"># 4</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p><strong>切片操作</strong>：可以通过切片获取列表的子列表，支持步长。</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>切片操作：可以通过切片获取列表的子列表，支持步长。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sub_lst = lst[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]       <span class="hljs-comment"># [4, 2]</span><br>sub_lst_with_step = lst[::<span class="hljs-number">2</span>]  <span class="hljs-comment"># [1, 2]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="是否存在"><a href="#是否存在" class="headerlink" title="是否存在"></a>是否存在</h3><p><strong>in</strong> 和 <strong>not in</strong>：检查元素是否在列表中。</p>
+<h3 id="是否存在"><a href="#是否存在" class="headerlink" title="是否存在"></a>是否存在</h3><p>in 和 not in：检查元素是否在列表中。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">exists = <span class="hljs-number">3</span> <span class="hljs-keyword">in</span> lst        <span class="hljs-comment"># True</span><br>not_exists = <span class="hljs-number">5</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> lst  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="逆置"><a href="#逆置" class="headerlink" title="逆置"></a>逆置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 原地反转</span><br>my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>my_list.reverse()<br><br><span class="hljs-comment"># 不修改原列表</span><br>new_list = my_list[::-<span class="hljs-number">1</span>]<br></code></pre></td></tr></table></figure>
@@ -468,12 +466,12 @@
                 
                   <div class="text">
                     <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
-                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.mizu.ink/">Mizu</a>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.mizu.ink/" >Mizu</a>
                   </div>
                 
                   <div class="text">
                     <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
-                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzkxNTYxODQ1NQ">神龟先生</a>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzkxNTYxODQ1NQ" >神龟先生</a>
                   </div>
                 
                 

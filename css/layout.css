@@ -688,6 +688,8 @@ mjx-container {
 .foot-link {
   display: inline-block;
   padding-left: 8px;
+  color: #f6fafe;
+  text-decoration: none;
 }
 .copyright {
   display: flex;
