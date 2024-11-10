@@ -334,9 +334,59 @@
 <h3 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h3><p>len(list)：返回列表中元素的数量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">length = <span class="hljs-built_in">len</span>(lst)  <span class="hljs-comment"># 4</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>切片操作：可以通过切片获取列表的子列表，支持步长。</p>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>Python 的列表切片（slicing）是一种从列表中提取子列表的简便方法，语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>[start:stop:step]<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>start</code>：切片开始的索引位置，包含该位置（默认是 <code>0</code>）。</li>
+<li><code>stop</code>：切片结束的索引位置，不包含该位置（默认是列表长度）。</li>
+<li><code>step</code>：步长，表示每隔几个元素取一个（默认是 <code>1</code>）。</li>
+</ul>
+<p><strong>示例</strong></p>
+<p>假设我们有一个列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong>基本切片</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[<span class="hljs-number">2</span>:<span class="hljs-number">5</span>]  <span class="hljs-comment"># [2, 3, 4]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**省略 <code>start</code> 和 <code>stop</code>**：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[:<span class="hljs-number">5</span>]    <span class="hljs-comment"># [0, 1, 2, 3, 4]</span><br>numbers[<span class="hljs-number">5</span>:]    <span class="hljs-comment"># [5, 6, 7, 8, 9]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用负索引</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[-<span class="hljs-number">3</span>:]   <span class="hljs-comment"># [7, 8, 9]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**步长 <code>step</code>**：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[::<span class="hljs-number">2</span>]   <span class="hljs-comment"># [0, 2, 4, 6, 8]</span><br>numbers[<span class="hljs-number">1</span>::<span class="hljs-number">2</span>]  <span class="hljs-comment"># [1, 3, 5, 7, 9]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>反向切片</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[::-<span class="hljs-number">1</span>]  <span class="hljs-comment"># [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>切片可以用于生成列表的子列表，非常灵活。</p>
+<p>切片操作：可以通过切片获取列表的子列表，支持步长。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sub_lst = lst[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]       <span class="hljs-comment"># [4, 2]</span><br>sub_lst_with_step = lst[::<span class="hljs-number">2</span>]  <span class="hljs-comment"># [1, 2]</span><br></code></pre></td></tr></table></figure>
 
+<p>注意</p>
+<p>在 Python 列表切片中，如果省略了 <code>start</code> 或 <code>stop</code>，即使给定的 <code>start</code> 或 <code>stop</code> 超出了列表的合法索引范围，Python 也不会报错，而是自动将其调整到列表的有效范围内。</p>
+<p>假设一个列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong><code>start</code> 超过最大索引</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[<span class="hljs-number">10</span>:]  <span class="hljs-comment"># 返回空列表 []</span><br></code></pre></td></tr></table></figure>
+<p>尝试从索引 <code>10</code> 开始切片，但由于超出范围，返回空列表。</p>
+</li>
+<li><p><strong><code>stop</code> 超过最大索引</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[:<span class="hljs-number">10</span>]  <span class="hljs-comment"># 返回整个列表 [0, 1, 2, 3, 4, 5]</span><br></code></pre></td></tr></table></figure>
+<p><code>stop</code> 超出范围，Python 自动调整为列表末尾。</p>
+</li>
+<li><p><strong>负索引超出范围</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers[-<span class="hljs-number">10</span>:]  <span class="hljs-comment"># 返回整个列表 [0, 1, 2, 3, 4, 5]</span><br></code></pre></td></tr></table></figure>
+<p>如果负索引超出范围，Python 会自动调整为 <code>0</code>，即从列表开始位置切片。</p>
+</li>
+</ol>
+<p>当 <code>start</code> 或 <code>stop</code> 超出范围时，Python 切片操作会自动调整到有效范围，而不会报错。</p>
 <h3 id="是否存在"><a href="#是否存在" class="headerlink" title="是否存在"></a>是否存在</h3><p>in 和 not in：检查元素是否在列表中。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">exists = <span class="hljs-number">3</span> <span class="hljs-keyword">in</span> lst        <span class="hljs-comment"># True</span><br>not_exists = <span class="hljs-number">5</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> lst  <span class="hljs-comment"># True</span><br></code></pre></td></tr></table></figure>
 
